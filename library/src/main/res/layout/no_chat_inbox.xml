@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:paddingBottom="@dimen/no_chat_middle_margin"
+    android:paddingTop="@dimen/no_chat_middle_margin">
+
+
+    <!--<ru.alexbykov.chat.custom.views.CustomCircleImageView-->
+        <!--android:id="@+id/civPhoto"-->
+        <!--android:layout_width="@dimen/extra_photo_size"-->
+        <!--android:layout_height="@dimen/extra_photo_size"-->
+        <!--android:layout_marginStart="@dimen/activity_horizontal_margin"-->
+        <!--android:scaleType="centerCrop" />-->
+
+    <!--<ImageView-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_marginStart="@dimen/no_chat_middle_margin"-->
+    <!--android:src="@drawable/chat_ugol_gray" />-->
+
+
+
+    <ImageView
+        android:layout_marginEnd="@dimen/no_chat_small_margin"
+        android:background="@android:color/holo_orange_dark"
+        android:layout_width="30dp"
+        android:layout_height="30dp" />
+
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/no_chat_big_margin"
+        android:background="@color/light_grey">
+
+        <TextView
+            android:text="ээээ чё там как"
+            android:id="@+id/tvMessage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/no_chat_horizontal_margin"
+            android:textColor="@android:color/white" />
+
+        <TextView
+            android:layout_alignParentEnd="true"
+            android:text="25.08.1990"
+            android:id="@+id/tvDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tvMessage"
+            android:paddingBottom="@dimen/no_chat_small_margin"
+            android:paddingEnd="@dimen/no_chat_vertical_margin"
+            android:textColor="@android:color/white" />
+    </RelativeLayout>
+
+</LinearLayout>
