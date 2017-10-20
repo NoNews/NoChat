@@ -1,2 +1,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="ru.alexbykov.nochat" />
+    package="ru.alexbykov.nochat"/>
+
+
+    <!--<application-->
+        <!--android:theme="@style/AppTheme"/>-->
+
+<!--</manifest>-->

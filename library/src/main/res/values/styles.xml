@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+
+    <style name="AppTheme" parent="Theme.AppCompat.DayNight.NoActionBar">
+
+    </style>
+
+    <style name="MessageTextInput">
+        <item name="android:lines">6</item>
+        <item name="android:maxLines">10</item>
+        <item name="android:minLines">1</item>
+        <item name="android:inputType">textMultiLine</item>
+        <item name="android:hint">@string/no_chat_insert_message_hint</item>
+        <item name="android:scrollbars">vertical</item>
+        <item name="android:layout_centerInParent">true</item>
+        <item name="android:layout_marginStart">@dimen/no_chat_small_margin</item>
+        <item name="android:background">@null</item>
+        <item name="android:padding">@dimen/no_chat_vertical_margin</item>
+        <item name="android:textColor">@android:color/black</item>
+        <item name="android:textSize">@dimen/no_chat_input_text_size</item>
+    </style>
+
+    <string name="no_chat_insert_message_hint">Сообщение</string>
+
+</resources>
