@@ -29,7 +29,9 @@ public class MessageInputView extends FrameLayout {
 
 
     private static int LAYOUT = R.layout.no_chat_message_input;
-    private Runnable onSendClick;
+
+
+    private OnSendClickListener sendClickListener;
     private Runnable onAttachmentsClick;
     private RelativeLayout rootView;
     private ImageView ivSend;
@@ -68,7 +70,11 @@ public class MessageInputView extends FrameLayout {
         ivSend.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                final String text = etInput.getText().toString();
+                if (!NoChatStringUtils.isEmpty(text)) {
+                    sendClickListener.onClickSend(text);
+                }
+                clearInput();
             }
         });
         ivAttachments.setOnClickListener(new OnClickListener() {
@@ -100,6 +106,10 @@ public class MessageInputView extends FrameLayout {
         });
     }
 
+    private void clearInput() {
+        etInput.getText().clear();
+    }
+
     private void hideInput() {
 
         if (ivSend.getVisibility() == VISIBLE) {
@@ -123,8 +133,8 @@ public class MessageInputView extends FrameLayout {
         etInput = rootView.findViewById(R.id.et_input);
     }
 
-    public void onSendClick(Runnable onSendClick) {
-        this.onSendClick = onSendClick;
+    public void onSendClick(OnSendClickListener sendClickListener) {
+        this.sendClickListener = sendClickListener;
     }
 
     public void onAttachmentsClick(Runnable onAttachmentsClick) {
@@ -133,9 +143,14 @@ public class MessageInputView extends FrameLayout {
 
 
     public void unsubscribe() {
-        onSendClick = null;
+        sendClickListener = null;
         onAttachmentsClick = null;
         etInput.addTextChangedListener(null);
+    }
+
+
+    public interface OnSendClickListener {
+        public void onClickSend(String text);
     }
 
 }

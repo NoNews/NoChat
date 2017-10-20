@@ -11,7 +11,7 @@
 
 
         <ru.alexbykov.nochat.custom_views.MessageInputView
-            android:id="@+id/lt_chat_input"
+            android:id="@+id/lt_input"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
@@ -20,14 +20,8 @@
         <android.support.v7.widget.RecyclerView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_above="@id/lt_chat_input"/>
+            android:layout_above="@id/lt_input"/>
 
     </RelativeLayout>
-
-    <ru.alexbykov.nochat.custom_views.MessageInputView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-    </ru.alexbykov.nochat.custom_views.MessageInputView>
-
 
 </LinearLayout>
