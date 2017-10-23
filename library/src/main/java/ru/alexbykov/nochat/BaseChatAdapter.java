@@ -9,6 +9,10 @@ import android.view.ViewGroup;
 
 import java.util.List;
 
+import ru.alexbykov.nochat.holders.BaseViewHolder;
+import ru.alexbykov.nochat.holders.InboxHolder;
+import ru.alexbykov.nochat.holders.OutboxHolder;
+
 /**
  * @author Alex Bykov
  *         Date: 18.10.17.
@@ -23,6 +27,7 @@ public class BaseChatAdapter<М, T extends RecyclerView.ViewHolder> extends Recy
     private Runnable onScrollDownListener;
     private Runnable onScrollUpListener;
     protected RecyclerView recyclerView;
+
 
     @Override
     public T onCreateViewHolder(ViewGroup parent, int viewType) {

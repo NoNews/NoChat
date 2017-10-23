@@ -1,4 +1,5 @@
 apply plugin: 'com.android.library'
+apply plugin: 'com.novoda.bintray-release'
 
 android {
     compileSdkVersion 26
@@ -37,4 +38,13 @@ dependencies {
     compile "com.android.support:support-vector-drawable:26.1.0"
     compile 'com.android.support:recyclerview-v7:26.1.0'
 
+}
+
+publish {
+    groupId = 'ru.alexbykov'
+    artifactId = 'nochat'
+    publishVersion = '0.1.0'
+    desc = 'Permission library for Android'
+    licences = ['Apache-2.0']
+    website = 'https://github.com/NoNews/NoChat'
 }
