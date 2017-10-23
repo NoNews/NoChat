@@ -1,6 +1,10 @@
 package ru.alexbykov.nochat;
 
+import android.support.annotation.LayoutRes;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
 
 import java.util.List;
@@ -15,9 +19,10 @@ import java.util.List;
 public class BaseChatAdapter<М, T extends RecyclerView.ViewHolder> extends RecyclerView.Adapter<T> {
 
 
-    private List<T> messages;
+    protected List<М> messages;
     private Runnable onScrollDownListener;
     private Runnable onScrollUpListener;
+    protected RecyclerView recyclerView;
 
     @Override
     public T onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -30,28 +35,34 @@ public class BaseChatAdapter<М, T extends RecyclerView.ViewHolder> extends Recy
     }
 
     @Override
+    public void onAttachedToRecyclerView(RecyclerView recyclerView) {
+        this.recyclerView = recyclerView;
+        super.onAttachedToRecyclerView(recyclerView);
+    }
+
+    @Override
     public int getItemCount() {
         return messages == null || messages.isEmpty() ? 0 : messages.size();
     }
 
 
-    public void newMessage(T t) {
+    public void newMessage(М t) {
         add(t, getItemCount());
     }
 
-    public void removeMessage(T t) {
+    public void removeMessage(М t) {
 
     }
 
-    public void updateMessage(T t) {
+    public void updateMessage(М t) {
 
     }
 
-    public void updateMessages(List<T> messages) {
+    public void updateMessages(List<М> messages) {
 
     }
 
-    public void addMessages(List<T> newMessages, AddMessagesMode messagesMode) {
+    public void addMessages(List<М> newMessages, AddMessagesMode messagesMode) {
 
         switch (messagesMode) {
             case TO_END:
@@ -70,14 +81,21 @@ public class BaseChatAdapter<М, T extends RecyclerView.ViewHolder> extends Recy
         }
     }
 
+    protected View inflate(ViewGroup parent, @LayoutRes int layout) {
+        return LayoutInflater.from(parent.getContext()).inflate(layout, parent, false);
+    }
 
-    private void add(T item, int position) {
+    private void add(М item, int position) {
         messages.add(position, item);
         notifyItemInserted(position);
+        final LinearLayoutManager manager = (LinearLayoutManager) recyclerView.getLayoutManager();
+        recyclerView.getLayoutManager().scrollToPosition(manager.findLastVisibleItemPosition() + 1);
+
     }
 
     private void remove(int position) {
         notifyItemRemoved(position);
         messages.remove(position);
     }
+
 }

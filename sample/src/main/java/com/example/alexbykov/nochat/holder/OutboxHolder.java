@@ -1,6 +1,10 @@
 package com.example.alexbykov.nochat.holder;
 
 import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
+
+import com.example.alexbykov.nochat.R;
 
 /**
  * @author Alex Bykov
@@ -10,7 +14,15 @@ import android.view.View;
  */
 
 public class OutboxHolder extends BaseViewHolder {
+
+    public TextView tvMessage;
+    public TextView tvDate;
+    public TextView tvName;
+    public ImageView civPhoto;
+
     public OutboxHolder(View itemView) {
         super(itemView);
+        tvMessage = bindView(R.id.tv_message);
+        tvDate = bindView(R.id.tv_date);
     }
 }

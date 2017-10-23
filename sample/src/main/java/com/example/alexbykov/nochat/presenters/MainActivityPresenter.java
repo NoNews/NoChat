@@ -1,6 +1,6 @@
 package com.example.alexbykov.nochat.presenters;
 
-import com.example.alexbykov.nochat.activities.MainActivity;
+import com.example.alexbykov.nochat.data.MessageDTO;
 import com.example.alexbykov.nochat.views.MainActivityView;
 
 import ru.alexbykov.nochat.custom_views.MessageInputView;
@@ -25,6 +25,11 @@ public class MainActivityPresenter implements MessageInputView.OnSendClickListen
 
     @Override
     public void onClickSend(String text) {
+        MessageDTO local = new MessageDTO();
+        local.setFrom("1");
+        local.setText(text);
+//        local.setDate("25.09.1994");
 
+        mainActivityView.newMessage(local);
     }
 }

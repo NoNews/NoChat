@@ -9,4 +9,8 @@ package com.example.alexbykov.nochat.views;
 
 public interface MainActivityView {
 
+
+    void newMessage(Object message);
+    void removeMessage(Object message);
+    void updateMessage(Object message);
 }
