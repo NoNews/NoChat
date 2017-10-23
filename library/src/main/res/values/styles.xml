@@ -21,6 +21,27 @@
         <item name="android:textSize">@dimen/no_chat_input_text_size</item>
     </style>
 
+
+    <style name="OutboxMessageText">
+        <item name="android:layout_marginEnd">@dimen/no_chat_horizontal_margin</item>
+        <item name="android:layout_marginTop">@dimen/no_chat_small_margin</item>
+    </style>
+
+
+
+    <style name="DateStyle">
+        <item name="android:layout_marginEnd">@dimen/no_chat_small_margin</item>
+        <item name="android:textColor">@color/new_gray3</item>
+        <item name="android:textSize">@dimen/no_chat_small_text_size</item>
+        <item name="android:layout_marginTop">@dimen/no_chat_small_margin</item>
+    </style>
+
+
+
+
     <string name="no_chat_insert_message_hint">Сообщение</string>
+
+
+
 
 </resources>

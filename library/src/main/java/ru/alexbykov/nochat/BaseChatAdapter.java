@@ -77,6 +77,7 @@ public class BaseChatAdapter<М, T extends RecyclerView.ViewHolder> extends Recy
                 this.messages.clear();
                 this.messages.addAll(newMessages);
                 notifyDataSetChanged();
+//                scrollToBottom();
                 break;
         }
     }
@@ -88,10 +89,17 @@ public class BaseChatAdapter<М, T extends RecyclerView.ViewHolder> extends Recy
     private void add(М item, int position) {
         messages.add(position, item);
         notifyItemInserted(position);
+        scrollToBottom();
+    }
+
+    private void scrollToBottom() {
         final LinearLayoutManager manager = (LinearLayoutManager) recyclerView.getLayoutManager();
         recyclerView.getLayoutManager().scrollToPosition(manager.findLastVisibleItemPosition() + 1);
-
     }
+//    private void scrollToBottom() {
+//        final LinearLayoutManager manager = (LinearLayoutManager) recyclerView.getLayoutManager();
+//        recyclerView.getLayoutManager().scrollToPosition(manager.findLastVisibleItemPosition() + 1);
+//    }
 
     private void remove(int position) {
         notifyItemRemoved(position);

@@ -10,6 +10,9 @@ import com.example.alexbykov.nochat.adapter.ChatAdapter;
 import com.example.alexbykov.nochat.presenters.MainActivityPresenter;
 import com.example.alexbykov.nochat.views.MainActivityView;
 
+import java.util.List;
+
+import ru.alexbykov.nochat.AddMessagesMode;
 import ru.alexbykov.nochat.custom_views.MessageInputView;
 
 public class MainActivity extends AppCompatActivity implements MainActivityView {
@@ -27,11 +30,10 @@ public class MainActivity extends AppCompatActivity implements MainActivityView 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mainActivityPresenter = new MainActivityPresenter(this);
         setContentView(LAYOUT);
         setupUI();
+        mainActivityPresenter = new MainActivityPresenter(this);
         setupUX();
-
     }
 
     private void setupUI() {
@@ -42,7 +44,9 @@ public class MainActivity extends AppCompatActivity implements MainActivityView 
 
     private void setupChatAdapter() {
         chatAdapter = new ChatAdapter();
-        rvChat.setLayoutManager(new LinearLayoutManager(this));
+        LinearLayoutManager manager = new LinearLayoutManager(this);
+        manager.setStackFromEnd(true);
+        rvChat.setLayoutManager(manager);
         rvChat.setAdapter(chatAdapter);
     }
 
@@ -76,5 +80,10 @@ public class MainActivity extends AppCompatActivity implements MainActivityView 
     @Override
     public void updateMessage(Object message) {
         chatAdapter.updateMessage(message);
+    }
+
+    @Override
+    public void addMessages(List<Object> messages) {
+        chatAdapter.addMessages(messages, AddMessagesMode.INSTEAD_ALL);
     }
 }

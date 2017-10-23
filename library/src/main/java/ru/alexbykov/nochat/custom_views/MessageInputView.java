@@ -150,7 +150,7 @@ public class MessageInputView extends FrameLayout {
 
 
     public interface OnSendClickListener {
-        public void onClickSend(String text);
+        void onClickSend(String text);
     }
 
 }

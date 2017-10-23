@@ -2,6 +2,10 @@
 <resources>
 
     <color name="light_grey">#bfbfbf</color>
+    <color name="gray">#D9DDEC</color>
+    <color name="white">#bfbfbf</color>
+    <color name="new_gray3">#5E616B</color>
+
 
 
 </resources>
