@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 
 import com.example.alexbykov.nochat.R;
 import com.example.alexbykov.nochat.adapter.ChatAdapter;
@@ -57,6 +58,20 @@ public class MainActivity extends AppCompatActivity implements MainActivityView 
             @Override
             public void run() {
 
+            }
+        });
+
+        chatAdapter.onBottom(new Runnable() {
+            @Override
+            public void run() {
+                Log.d("CHAT_ADAPTER", "run: bottom");
+            }
+        });
+
+        chatAdapter.onTop(new Runnable() {
+            @Override
+            public void run() {
+                Log.d("CHAT_ADAPTER", "run: top");
             }
         });
     }

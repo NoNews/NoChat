@@ -3,15 +3,14 @@ package ru.alexbykov.nochat;
 import android.support.annotation.LayoutRes;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import java.util.List;
 
-import ru.alexbykov.nochat.holders.BaseViewHolder;
-import ru.alexbykov.nochat.holders.InboxHolder;
-import ru.alexbykov.nochat.holders.OutboxHolder;
+import ru.alexbykov.nochat.utils.ScrollUtils;
 
 /**
  * @author Alex Bykov
@@ -27,6 +26,9 @@ public class BaseChatAdapter<М, T extends RecyclerView.ViewHolder> extends Recy
     private Runnable onScrollDownListener;
     private Runnable onScrollUpListener;
     protected RecyclerView recyclerView;
+    private Runnable topListener;
+    private Runnable bottomListener;
+    private int loadingTriggerThreshold = 2;
 
 
     @Override
@@ -39,9 +41,36 @@ public class BaseChatAdapter<М, T extends RecyclerView.ViewHolder> extends Recy
 
     }
 
+
+    public void onBottom(Runnable bottomListener) {
+        this.bottomListener = bottomListener;
+    }
+
+    public void onTop(Runnable topListener) {
+        this.topListener = topListener;
+    }
+
     @Override
     public void onAttachedToRecyclerView(RecyclerView recyclerView) {
         this.recyclerView = recyclerView;
+
+        recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
+            @Override
+            public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
+                if (ScrollUtils.isOnBottom(recyclerView, loadingTriggerThreshold)) {
+                    bottomListener.run();
+
+                } else if (ScrollUtils.isOnTop(recyclerView, loadingTriggerThreshold)) {
+                    topListener.run();
+                }
+                super.onScrollStateChanged(recyclerView, newState);
+            }
+
+            @Override
+            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+                super.onScrolled(recyclerView, dx, dy);
+            }
+        });
         super.onAttachedToRecyclerView(recyclerView);
     }
 
@@ -101,10 +130,7 @@ public class BaseChatAdapter<М, T extends RecyclerView.ViewHolder> extends Recy
         final LinearLayoutManager manager = (LinearLayoutManager) recyclerView.getLayoutManager();
         recyclerView.getLayoutManager().scrollToPosition(manager.findLastVisibleItemPosition() + 1);
     }
-//    private void scrollToBottom() {
-//        final LinearLayoutManager manager = (LinearLayoutManager) recyclerView.getLayoutManager();
-//        recyclerView.getLayoutManager().scrollToPosition(manager.findLastVisibleItemPosition() + 1);
-//    }
+
 
     private void remove(int position) {
         notifyItemRemoved(position);

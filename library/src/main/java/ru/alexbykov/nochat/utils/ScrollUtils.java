@@ -3,6 +3,7 @@ package ru.alexbykov.nochat.utils;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
+import android.util.Log;
 
 /**
  * @author Alex Bykov
@@ -12,11 +13,11 @@ import android.support.v7.widget.StaggeredGridLayoutManager;
  */
 
 public class ScrollUtils {
-    
+
     private ScrollUtils() {
     }
 
-    static boolean isOnBottom(RecyclerView recyclerView, int loadingTriggerThreshold) {
+    public static boolean isOnBottom(RecyclerView recyclerView, int loadingTriggerThreshold) {
         final int visibleItemCount = recyclerView.getChildCount();
         final int totalItemCount = recyclerView.getLayoutManager().getItemCount();
         final int firstVisibleItemPosition = getFirstVisibleItemPositionByLayoutManager(recyclerView.getLayoutManager());
@@ -26,8 +27,11 @@ public class ScrollUtils {
 
     }
 
-    static boolean isOnTop(RecyclerView recyclerView) {
-        return true;
+    public static boolean isOnTop(RecyclerView recyclerView, int loadingTriggerThreshold) {
+        final int firstVisiblePosition = getFirstVisibleItemPositionByLayoutManager(recyclerView.getLayoutManager());
+
+        final int topPosition = recyclerView.getLayoutManager().findViewByPosition(firstVisiblePosition).getTop();
+        return (/*topPosition-loadingTriggerThreshold == 0 && */firstVisiblePosition <= loadingTriggerThreshold);
     }
 
     private static int getFirstVisibleItemPositionByLayoutManager(RecyclerView.LayoutManager layoutManager) {
