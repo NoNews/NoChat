@@ -1,4 +1,4 @@
-package ru.alexbykov.nochat;
+package ru.alexbykov.nochat.utils;
 
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -12,6 +12,7 @@ import android.support.v7.widget.StaggeredGridLayoutManager;
  */
 
 public class ScrollUtils {
+    
     private ScrollUtils() {
     }
 

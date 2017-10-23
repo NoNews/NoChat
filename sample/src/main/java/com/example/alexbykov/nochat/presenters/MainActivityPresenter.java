@@ -44,7 +44,7 @@ public class MainActivityPresenter implements MessageInputView.OnSendClickListen
         List<Object> messages = new ArrayList<>();
         for (int i = 0; i < 50; i++) {
             MessageDTO local = new MessageDTO();
-            local.setFrom("1");
+            local.setFrom("0");
             local.setMessageId(String.valueOf(i));
             local.setText("Сообщение "+i);
             messages.add(local);

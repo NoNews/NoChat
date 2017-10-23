@@ -1,4 +1,4 @@
-package com.example.alexbykov.nochat.holder;
+package ru.alexbykov.nochat.holders;
 
 import android.support.annotation.IdRes;
 import android.support.v7.widget.RecyclerView;

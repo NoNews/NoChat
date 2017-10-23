@@ -1,10 +1,11 @@
-package com.example.alexbykov.nochat.holder;
+package ru.alexbykov.nochat.holders;
 
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.alexbykov.nochat.R;
+import ru.alexbykov.nochat.R;
+
 
 /**
  * @author Alex Bykov
@@ -13,16 +14,19 @@ import com.example.alexbykov.nochat.R;
  *         You can contact me at me@alexbykov.ru
  */
 
-public class OutboxHolder extends BaseViewHolder {
+public class InboxHolder extends BaseViewHolder {
 
-    public TextView tvMessage;
-    public TextView tvDate;
-    public TextView tvName;
-    public ImageView civPhoto;
 
-    public OutboxHolder(View itemView) {
+   public TextView tvMessage;
+   public TextView tvDate;
+   public TextView tvName;
+   public ImageView civPhoto;
+
+
+    public InboxHolder(View itemView) {
         super(itemView);
         tvMessage = bindView(R.id.tv_message);
         tvDate = bindView(R.id.tv_date);
+//        tvName = bindView(R.id.)
     }
 }

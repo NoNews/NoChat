@@ -6,9 +6,9 @@ import android.view.ViewGroup;
 
 import com.example.alexbykov.nochat.R;
 import com.example.alexbykov.nochat.data.MessageDTO;
-import com.example.alexbykov.nochat.holder.BaseViewHolder;
-import com.example.alexbykov.nochat.holder.InboxHolder;
-import com.example.alexbykov.nochat.holder.OutboxHolder;
+import ru.alexbykov.nochat.holders.BaseViewHolder;
+import ru.alexbykov.nochat.holders.InboxHolder;
+import ru.alexbykov.nochat.holders.OutboxHolder;
 
 import java.util.ArrayList;
 
@@ -82,7 +82,8 @@ public class ChatAdapter extends BaseChatAdapter<Object, BaseViewHolder> {
     }
 
     private void setupInbox(MessageDTO message, BaseViewHolder holder) {
-
+        InboxHolder inboxHolder = (InboxHolder) holder;
+        inboxHolder.tvMessage.setText(message.getText());
     }
 
 
