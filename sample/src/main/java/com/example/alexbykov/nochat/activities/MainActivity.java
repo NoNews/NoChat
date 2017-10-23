@@ -101,4 +101,12 @@ public class MainActivity extends AppCompatActivity implements MainActivityView 
     public void addMessages(List<Object> messages) {
         chatAdapter.addMessages(messages, AddMessagesMode.INSTEAD_ALL);
     }
+
+    public void showTopProgress(boolean show) {
+
+    }
+
+    public void showBottomProgress(boolean show) {
+
+    }
 }

@@ -1,16 +1,17 @@
 package ru.alexbykov.nochat;
 
 import android.support.annotation.LayoutRes;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import java.util.List;
 
-import ru.alexbykov.nochat.utils.ScrollUtils;
+import ru.alexbykov.nochat.holders.BaseViewHolder;
+import ru.alexbykov.nochat.holders.InboxHolder;
+import ru.alexbykov.nochat.holders.OutboxHolder;
+import ru.alexbykov.nochat.utils.NoChatScrollUtils;
 
 /**
  * @author Alex Bykov
@@ -19,25 +20,43 @@ import ru.alexbykov.nochat.utils.ScrollUtils;
  *         You can contact me at me@alexbykov.ru
  */
 
-public class BaseChatAdapter<М, T extends RecyclerView.ViewHolder> extends RecyclerView.Adapter<T> {
+public class BaseChatAdapter<М> extends RecyclerView.Adapter<BaseViewHolder> {
 
 
     protected List<М> messages;
-    private Runnable onScrollDownListener;
-    private Runnable onScrollUpListener;
     protected RecyclerView recyclerView;
     private Runnable topListener;
     private Runnable bottomListener;
     private int loadingTriggerThreshold = 2;
 
 
+    private static final int LAYOUT_INBOX = R.layout.no_chat_inbox;
+    private static final int LAYOUT_OUTBOX = R.layout.no_chat_outbox;
+
+    protected static final int VIEW_TYPE_INBOX = 0;
+    protected static final int VIEW_TYPE_OUTBOX = 1;
+    protected static final int VIEW_TYPE_DATE = 2;
+    protected static final int VIEW_TYPE_PROGRESS = 3;
+
     @Override
-    public T onCreateViewHolder(ViewGroup parent, int viewType) {
+    public BaseViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+
+        View view = null;
+        switch (viewType) {
+            case VIEW_TYPE_INBOX:
+                view = inflate(parent, LAYOUT_INBOX);
+                return new InboxHolder(view);
+            case VIEW_TYPE_OUTBOX:
+                view = inflate(parent, LAYOUT_OUTBOX);
+                return new OutboxHolder(view);
+        }
+
         return null;
     }
 
+
     @Override
-    public void onBindViewHolder(T holder, int position) {
+    public void onBindViewHolder(BaseViewHolder holder, int position) {
 
     }
 
@@ -57,10 +76,10 @@ public class BaseChatAdapter<М, T extends RecyclerView.ViewHolder> extends Recy
         recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
             @Override
             public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
-                if (ScrollUtils.isOnBottom(recyclerView, loadingTriggerThreshold)) {
+                if (NoChatScrollUtils.isOnBottom(recyclerView, loadingTriggerThreshold)) {
                     bottomListener.run();
 
-                } else if (ScrollUtils.isOnTop(recyclerView, loadingTriggerThreshold)) {
+                } else if (NoChatScrollUtils.isOnTop(recyclerView, loadingTriggerThreshold)) {
                     topListener.run();
                 }
                 super.onScrollStateChanged(recyclerView, newState);
@@ -123,14 +142,21 @@ public class BaseChatAdapter<М, T extends RecyclerView.ViewHolder> extends Recy
     private void add(М item, int position) {
         messages.add(position, item);
         notifyItemInserted(position);
-        scrollToBottom();
+        if (NoChatScrollUtils.isOnBottom(recyclerView, 1)) {
+            NoChatScrollUtils.scrollToLastVisible(recyclerView);
+        } else {
+            NoChatScrollUtils.fullScrollToBottom(this, recyclerView);
+        }
     }
 
-    private void scrollToBottom() {
-        final LinearLayoutManager manager = (LinearLayoutManager) recyclerView.getLayoutManager();
-        recyclerView.getLayoutManager().scrollToPosition(manager.findLastVisibleItemPosition() + 1);
+
+    public void showBottomProgress(boolean show) {
+
     }
 
+    public void showTopProgress(boolean show) {
+
+    }
 
     private void remove(int position) {
         notifyItemRemoved(position);

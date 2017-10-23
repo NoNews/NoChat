@@ -12,9 +12,9 @@ import android.util.Log;
  *         You can contact me at me@alexbykov.ru
  */
 
-public class ScrollUtils {
+public class NoChatScrollUtils {
 
-    private ScrollUtils() {
+    private NoChatScrollUtils() {
     }
 
     public static boolean isOnBottom(RecyclerView recyclerView, int loadingTriggerThreshold) {
@@ -53,7 +53,13 @@ public class ScrollUtils {
     }
 
 
-    static void fullScrollToBottom(RecyclerView recyclerView, RecyclerView.Adapter adapter) {
+    public static void scrollToLastVisible(RecyclerView recyclerView) {
+        final LinearLayoutManager manager = (LinearLayoutManager) recyclerView.getLayoutManager();
+        recyclerView.getLayoutManager().scrollToPosition(manager.findLastVisibleItemPosition() + 1);
+    }
+
+
+    public static void fullScrollToBottom(RecyclerView.Adapter adapter, RecyclerView recyclerView) {
         recyclerView.getLayoutManager().smoothScrollToPosition(recyclerView, null, adapter.getItemCount() - 1);
     }
 }
