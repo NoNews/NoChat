@@ -70,7 +70,7 @@ public class MessageInputView extends FrameLayout {
         ivSend.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
-                final String text = etInput.getText().toString();
+                final String text = etInput.getText().toString().trim();
                 if (!NoChatStringUtils.isEmpty(text)) {
                     sendClickListener.onClickSend(text);
                 }

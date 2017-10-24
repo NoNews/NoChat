@@ -1,5 +1,6 @@
 package ru.alexbykov.nochat;
 
+import android.annotation.SuppressLint;
 import android.support.annotation.LayoutRes;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -11,6 +12,7 @@ import java.util.List;
 import ru.alexbykov.nochat.holders.BaseViewHolder;
 import ru.alexbykov.nochat.holders.InboxHolder;
 import ru.alexbykov.nochat.holders.OutboxHolder;
+import ru.alexbykov.nochat.models.NoChatProgress;
 import ru.alexbykov.nochat.utils.NoChatScrollUtils;
 
 /**
@@ -20,7 +22,7 @@ import ru.alexbykov.nochat.utils.NoChatScrollUtils;
  *         You can contact me at me@alexbykov.ru
  */
 
-public class BaseChatAdapter<М> extends RecyclerView.Adapter<BaseViewHolder> {
+public abstract class BaseChatAdapter<М> extends RecyclerView.Adapter<BaseViewHolder> {
 
 
     protected List<М> messages;
@@ -32,11 +34,17 @@ public class BaseChatAdapter<М> extends RecyclerView.Adapter<BaseViewHolder> {
 
     private static final int LAYOUT_INBOX = R.layout.no_chat_inbox;
     private static final int LAYOUT_OUTBOX = R.layout.no_chat_outbox;
+    private static final int LAYOUT_PROGRESS = R.layout.no_chat_progress;
 
     protected static final int VIEW_TYPE_INBOX = 0;
     protected static final int VIEW_TYPE_OUTBOX = 1;
     protected static final int VIEW_TYPE_DATE = 2;
     protected static final int VIEW_TYPE_PROGRESS = 3;
+
+    private final NoChatProgress noChatProgress = new NoChatProgress();
+
+
+    private AdapterState adapterState = AdapterState.ON_BOTTOM;
 
     @Override
     public BaseViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -48,6 +56,10 @@ public class BaseChatAdapter<М> extends RecyclerView.Adapter<BaseViewHolder> {
                 return new InboxHolder(view);
             case VIEW_TYPE_OUTBOX:
                 view = inflate(parent, LAYOUT_OUTBOX);
+                return new OutboxHolder(view);
+
+            case VIEW_TYPE_PROGRESS:
+                view = inflate(parent, LAYOUT_PROGRESS);
                 return new OutboxHolder(view);
         }
 
@@ -150,8 +162,26 @@ public class BaseChatAdapter<М> extends RecyclerView.Adapter<BaseViewHolder> {
     }
 
 
+    @SuppressWarnings("unchecked")
     public void showBottomProgress(boolean show) {
+        if (show && adapterState != AdapterState.IN_PROGRESS) {
+            messages.add((М) noChatProgress);
+            adapterState = AdapterState.IN_PROGRESS;
+            notifyItemInserted(getItemCount()-1);
+        } else {
+            final int lastItemPosition = messages.size() - 1;
+            notifyItemRemoved(lastItemPosition);
+            messages.remove(lastItemPosition);
+            setAdapterState();
+        }
+    }
 
+    private void setAdapterState() {
+        if (NoChatScrollUtils.isOnBottom(recyclerView, loadingTriggerThreshold)) {
+            adapterState = AdapterState.ON_BOTTOM;
+        } else if (NoChatScrollUtils.isOnTop(recyclerView, loadingTriggerThreshold)) {
+            adapterState = AdapterState.ON_TOP;
+        } else adapterState = AdapterState.SCROLLING_OR_MIDDLE;
     }
 
     public void showTopProgress(boolean show) {

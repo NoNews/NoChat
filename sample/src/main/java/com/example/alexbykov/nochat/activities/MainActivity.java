@@ -54,26 +54,15 @@ public class MainActivity extends AppCompatActivity implements MainActivityView 
 
     private void setupUX() {
         ltInput.onSendClick(mainActivityPresenter);
-        ltInput.onAttachmentsClick(new Runnable() {
-            @Override
-            public void run() {
+        ltInput.onAttachmentsClick(() -> {
 
-            }
         });
 
-        chatAdapter.onBottom(new Runnable() {
-            @Override
-            public void run() {
-                Log.d("CHAT_ADAPTER", "run: bottom");
-            }
-        });
+        chatAdapter.onBottom(() -> Log.d("CHAT_ADAPTER", "run: bottom"));
+        chatAdapter.onTop(() -> Log.d("CHAT_ADAPTER", "run: top"));
 
-        chatAdapter.onTop(new Runnable() {
-            @Override
-            public void run() {
-                Log.d("CHAT_ADAPTER", "run: top");
-            }
-        });
+        findViewById(R.id.add_progress).setOnClickListener(v->chatAdapter.showBottomProgress(true));
+        findViewById(R.id.stop_progress).setOnClickListener(v->chatAdapter.showBottomProgress(false));
     }
 
 

@@ -4,6 +4,7 @@ import android.content.Context;
 
 import com.example.alexbykov.nochat.data.MessageDTO;
 
+import ru.alexbykov.nochat.models.NoChatDate;
 import ru.alexbykov.nochat.models.NoChatProgress;
 import ru.alexbykov.nochat.holders.BaseViewHolder;
 import ru.alexbykov.nochat.holders.InboxHolder;
@@ -27,13 +28,6 @@ public class ChatAdapter extends BaseChatAdapter<Object> {
     private String myJid = "1";
 
 
-//    private static final int INBOX = 0;
-//    private static final int OUTBOX = 1;
-//    private static final int DATE = 2;
-//
-//    private static final int LAYOUT_INBOX = R.layout.no_chat_inbox;
-//    private static final int LAYOUT_OUTBOX = R.layout.no_chat_outbox;
-
 
     public ChatAdapter() {
         messages = new ArrayList<>();
@@ -47,7 +41,7 @@ public class ChatAdapter extends BaseChatAdapter<Object> {
         if (message instanceof MessageDTO) {
             if (((MessageDTO) message).getFrom().equals(myJid)) {
                 return VIEW_TYPE_OUTBOX;
-            } else{
+            } else {
                 return VIEW_TYPE_INBOX;
             }
         } else if (message instanceof NoChatProgress) {
@@ -55,7 +49,6 @@ public class ChatAdapter extends BaseChatAdapter<Object> {
         } else {
             return VIEW_TYPE_DATE;
         }
-
     }
 
     @Override
@@ -63,19 +56,31 @@ public class ChatAdapter extends BaseChatAdapter<Object> {
 
         final int itemViewType = getItemViewType(position);
 
-        if (itemViewType == VIEW_TYPE_DATE) {
 
-        } else {
-            MessageDTO message = (MessageDTO) messages.get(position);
+        switch (itemViewType) {
 
-            if (itemViewType == VIEW_TYPE_OUTBOX) {
-                setupOutbox(message, holder);
-            } else {
-                setupInbox(message, holder);
-            }
+            case VIEW_TYPE_DATE:
+                break;
+            case VIEW_TYPE_INBOX:
+                MessageDTO inbox = (MessageDTO) messages.get(position);
+                setupInbox(inbox, holder);
+                break;
+            case VIEW_TYPE_OUTBOX:
+                MessageDTO outbox = (MessageDTO) messages.get(position);
+                setupOutbox(outbox, holder);
+                break;
         }
 
-
+//        if (itemViewType == VIEW_TYPE_DATE) {
+//
+//        } else {
+//            MessageDTO message = (MessageDTO) messages.get(position);
+//            if (itemViewType == VIEW_TYPE_OUTBOX) {
+//                setupOutbox(message, holder);
+//            } else {
+//                setupInbox(message, holder);
+//            }
+//        }
         super.onBindViewHolder(holder, position);
     }
 
