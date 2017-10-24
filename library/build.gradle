@@ -44,7 +44,7 @@ publish {
     groupId = 'ru.alexbykov'
     artifactId = 'nochat'
     publishVersion = '0.1.0'
-    desc = 'Permission library for Android'
+    desc = 'Android Chat library'
     licences = ['Apache-2.0']
     website = 'https://github.com/NoNews/NoChat'
 }
