@@ -19,7 +19,7 @@ import ru.alexbykov.nochat.custom_views.MessageInputView;
 public class MainActivity extends AppCompatActivity implements MainActivityView {
 
 
-    private final int LAYOUT = R.layout.activity_main;
+    private static final int LAYOUT = R.layout.activity_main;
 
 
     private ChatAdapter chatAdapter;
@@ -61,8 +61,8 @@ public class MainActivity extends AppCompatActivity implements MainActivityView 
         chatAdapter.onBottom(() -> Log.d("CHAT_ADAPTER", "run: bottom"));
         chatAdapter.onTop(() -> Log.d("CHAT_ADAPTER", "run: top"));
 
-        findViewById(R.id.add_progress).setOnClickListener(v->chatAdapter.showTopProgress(true));
-        findViewById(R.id.stop_progress).setOnClickListener(v->chatAdapter.showTopProgress(false));
+        findViewById(R.id.add_progress).setOnClickListener(v -> chatAdapter.showTopProgress(true));
+        findViewById(R.id.stop_progress).setOnClickListener(v -> chatAdapter.showTopProgress(false));
     }
 
 
@@ -92,10 +92,10 @@ public class MainActivity extends AppCompatActivity implements MainActivityView 
     }
 
     public void showTopProgress(boolean show) {
-
+        chatAdapter.showTopProgress(show);
     }
 
     public void showBottomProgress(boolean show) {
-
+        chatAdapter.showBottomProgress(show);
     }
 }
