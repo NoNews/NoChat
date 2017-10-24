@@ -61,8 +61,8 @@ public class MainActivity extends AppCompatActivity implements MainActivityView 
         chatAdapter.onBottom(() -> Log.d("CHAT_ADAPTER", "run: bottom"));
         chatAdapter.onTop(() -> Log.d("CHAT_ADAPTER", "run: top"));
 
-        findViewById(R.id.add_progress).setOnClickListener(v->chatAdapter.showBottomProgress(true));
-        findViewById(R.id.stop_progress).setOnClickListener(v->chatAdapter.showBottomProgress(false));
+        findViewById(R.id.add_progress).setOnClickListener(v->chatAdapter.showTopProgress(true));
+        findViewById(R.id.stop_progress).setOnClickListener(v->chatAdapter.showTopProgress(false));
     }
 
 

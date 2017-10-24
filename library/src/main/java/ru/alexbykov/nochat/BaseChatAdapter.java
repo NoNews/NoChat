@@ -142,7 +142,6 @@ public abstract class BaseChatAdapter<М> extends RecyclerView.Adapter<BaseViewH
                 this.messages.clear();
                 this.messages.addAll(newMessages);
                 notifyDataSetChanged();
-//                scrollToBottom();
                 break;
         }
     }
@@ -167,7 +166,7 @@ public abstract class BaseChatAdapter<М> extends RecyclerView.Adapter<BaseViewH
         if (show && adapterState != AdapterState.IN_PROGRESS) {
             messages.add((М) noChatProgress);
             adapterState = AdapterState.IN_PROGRESS;
-            notifyItemInserted(getItemCount()-1);
+            notifyItemInserted(getItemCount() - 1);
         } else {
             final int lastItemPosition = messages.size() - 1;
             notifyItemRemoved(lastItemPosition);
@@ -184,8 +183,17 @@ public abstract class BaseChatAdapter<М> extends RecyclerView.Adapter<BaseViewH
         } else adapterState = AdapterState.SCROLLING_OR_MIDDLE;
     }
 
+    @SuppressWarnings("unchecked")
     public void showTopProgress(boolean show) {
-
+        if (show && adapterState != AdapterState.IN_PROGRESS) {
+            messages.add(0, (М) noChatProgress);
+            adapterState = AdapterState.IN_PROGRESS;
+            notifyItemInserted(0);
+        } else {
+            notifyItemRemoved(0);
+            messages.remove(0);
+            setAdapterState();
+        }
     }
 
     private void remove(int position) {
