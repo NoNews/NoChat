@@ -2,4 +2,4 @@
 
 ### In progress now
 
-```compile 'ru.alexbykov:nochat:0.1.0'```
+```compile 'ru.alexbykov:nochat:0.1.1'```
