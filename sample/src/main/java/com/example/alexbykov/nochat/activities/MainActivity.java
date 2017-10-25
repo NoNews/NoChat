@@ -69,7 +69,12 @@ public class MainActivity extends AppCompatActivity implements MainActivityView 
     private void bindViews() {
         ltInput = findViewById(R.id.lt_input);
         rvChat = findViewById(R.id.rv_chat);
+
+
+
     }
+
+
 
     @Override
     public void newMessage(Object message) {

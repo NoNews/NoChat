@@ -70,17 +70,6 @@ public class ChatAdapter extends BaseChatAdapter<Object> {
                 setupOutbox(outbox, holder);
                 break;
         }
-
-//        if (itemViewType == VIEW_TYPE_DATE) {
-//
-//        } else {
-//            MessageDTO message = (MessageDTO) messages.get(position);
-//            if (itemViewType == VIEW_TYPE_OUTBOX) {
-//                setupOutbox(message, holder);
-//            } else {
-//                setupInbox(message, holder);
-//            }
-//        }
         super.onBindViewHolder(holder, position);
     }
 

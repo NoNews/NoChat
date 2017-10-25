@@ -1,6 +1,5 @@
 package ru.alexbykov.nochat;
 
-import android.annotation.SuppressLint;
 import android.support.annotation.LayoutRes;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -22,10 +21,10 @@ import ru.alexbykov.nochat.utils.NoChatScrollUtils;
  *         You can contact me at me@alexbykov.ru
  */
 
-public abstract class BaseChatAdapter<М> extends RecyclerView.Adapter<BaseViewHolder> {
+public abstract class BaseChatAdapter<M> extends RecyclerView.Adapter<BaseViewHolder> {
 
 
-    protected List<М> messages;
+    protected List<M> messages;
     protected RecyclerView recyclerView;
     private Runnable topListener;
     private Runnable bottomListener;
@@ -111,32 +110,29 @@ public abstract class BaseChatAdapter<М> extends RecyclerView.Adapter<BaseViewH
     }
 
 
-    public void newMessage(М t) {
-        add(t, getItemCount());
+    public void newMessage(M t) {
+        addToBottomWithScroll(t, getItemCount());
     }
 
-    public void removeMessage(М t) {
-
-    }
-
-    public void updateMessage(М t) {
+    public void removeMessage(M t) {
 
     }
 
-    public void updateMessages(List<М> messages) {
+    public void updateMessage(M t) {
 
     }
 
-    public void addMessages(List<М> newMessages, AddMessagesMode messagesMode) {
+    public void updateMessages(List<M> messages) {
 
+    }
+
+    public void addMessages(List<M> newMessages, AddMessagesMode messagesMode) {
         switch (messagesMode) {
             case TO_END:
-                this.messages.addAll(newMessages);
-                notifyDataSetChanged();
+                addAll(newMessages, messages.size() - 1);
                 break;
             case TO_START:
-                this.messages.addAll(0, newMessages);
-                notifyDataSetChanged();
+                addAll(newMessages, 0);
                 break;
             case INSTEAD_ALL:
                 this.messages.clear();
@@ -150,7 +146,7 @@ public abstract class BaseChatAdapter<М> extends RecyclerView.Adapter<BaseViewH
         return LayoutInflater.from(parent.getContext()).inflate(layout, parent, false);
     }
 
-    private void add(М item, int position) {
+    private void addToBottomWithScroll(M item, int position) {
         messages.add(position, item);
         notifyItemInserted(position);
         if (NoChatScrollUtils.isOnBottom(recyclerView, 1)) {
@@ -160,11 +156,21 @@ public abstract class BaseChatAdapter<М> extends RecyclerView.Adapter<BaseViewH
         }
     }
 
+    private void add(M item, int position) {
+        messages.add(position, item);
+        notifyItemInserted(position);
+    }
+
+    private void addAll(List<M> items, int position) {
+        for (M item : items) {
+            add(item, position);
+        }
+    }
 
     @SuppressWarnings("unchecked")
     public void showBottomProgress(boolean show) {
         if (show && adapterState != AdapterState.IN_PROGRESS) {
-            messages.add((М) noChatProgress);
+            messages.add((M) noChatProgress);
             adapterState = AdapterState.IN_PROGRESS;
             notifyItemInserted(getItemCount() - 1);
         } else {
@@ -186,7 +192,7 @@ public abstract class BaseChatAdapter<М> extends RecyclerView.Adapter<BaseViewH
     @SuppressWarnings("unchecked")
     public void showTopProgress(boolean show) {
         if (show && adapterState != AdapterState.IN_PROGRESS) {
-            messages.add(0, (М) noChatProgress);
+            messages.add(0, (M) noChatProgress);
             adapterState = AdapterState.IN_PROGRESS;
             notifyItemInserted(0);
         } else {
