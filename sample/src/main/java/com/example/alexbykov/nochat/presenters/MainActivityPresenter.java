@@ -47,7 +47,19 @@ public class MainActivityPresenter implements MessageInputView.OnSendClickListen
             local.setFrom("0");
             local.setMessageId(String.valueOf(i));
             local.setFrom("Сергей Павлов");
-            local.setText("Сообщениеs www.yandex.ru vhhvchjkcvxjhkvchjkxhjkxvch www.rambler.ru jkxvchjkxcvhjkcxvjhkcvxkhjcvxkhjcvxkhjvxckjhxcvhjkkchjvxkchjvxkhcjvxkchvx "+i);
+            if (i == 40) {
+                local.setImage("http://kaifolog.ru/uploads/posts/2014-03/thumbs/1395283837_003.jpg");
+            }
+            if (i == 41) {
+                local.setImage("http://kaifolog.ru/uploads/posts/2014-03/thumbs/1395283832_004.jpg");
+            }
+            if (i == 42) {
+                local.setImage("https://vk.com/photo-24098496_456254906");
+            }
+            if (i == 43) {
+                local.setImage("https://vk.com/photo-24098496_456267214");
+            }
+            local.setText("Сообщениеs www.yandex.ru vhhvchjkcvxjhkvchjkxhjkxvch www.rambler.ru jkxvchjkxcvhjkcxvjhkcvxkhjcvxkhjcvxkhjvxckjhxcvhjkkchjvxkchjvxkhcjvxkchvx " + i);
             messages.add(local);
         }
         return messages;

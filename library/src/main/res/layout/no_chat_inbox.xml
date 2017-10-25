@@ -30,10 +30,19 @@
                 android:layout_height="wrap_content" />
 
             <FrameLayout
+                android:layout_marginEnd="@dimen/no_chat_small_margin"
                 android:layout_below="@id/tv_name"
                 android:id="@+id/lt_content"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
+
+                <ImageView
+                    android:layout_marginTop="@dimen/no_chat_small_margin"
+                    android:scaleType="fitXY"
+                    android:id="@+id/iv_photo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
 
                 <TextView
                     android:text="вавлоолаволаволваолваловаловаловаловаловаловалоловаловаловаловаловаловалоавловаловлаолоав"

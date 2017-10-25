@@ -20,10 +20,12 @@ public class OutboxHolder extends BaseViewHolder {
     public TextView tvDate;
     public TextView tvName;
     public ImageView civPhoto;
+    public ImageView ivPhoto;
 
     public OutboxHolder(View itemView) {
         super(itemView);
         tvMessage = bindView(R.id.tv_message);
         tvDate = bindView(R.id.tv_date);
+        ivPhoto = bindView(R.id.iv_photo);
     }
 }

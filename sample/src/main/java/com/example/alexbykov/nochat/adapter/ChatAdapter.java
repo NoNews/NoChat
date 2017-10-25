@@ -1,8 +1,10 @@
 package com.example.alexbykov.nochat.adapter;
 
 import android.content.Context;
+import android.view.View;
 
 import com.example.alexbykov.nochat.data.MessageDTO;
+import com.squareup.picasso.Picasso;
 
 import ru.alexbykov.nochat.models.NoChatDate;
 import ru.alexbykov.nochat.models.NoChatProgress;
@@ -83,6 +85,14 @@ public class ChatAdapter extends BaseChatAdapter<Object> {
         InboxHolder inboxHolder = (InboxHolder) holder;
         inboxHolder.tvMessage.setText(message.getText());
         inboxHolder.tvName.setText(message.getFrom());
+        if (message.getImage()!=null){
+            Picasso.with(inboxHolder.ivImage.getContext())
+                    .load(message.getImage())
+                    .into(inboxHolder.ivImage);
+            inboxHolder.tvMessage.setVisibility(View.GONE);
+            inboxHolder.ivImage.setVisibility(View.VISIBLE);
+
+        }
     }
 
 

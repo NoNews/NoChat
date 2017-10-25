@@ -21,6 +21,7 @@ public class InboxHolder extends BaseViewHolder {
     public TextView tvDate;
     public TextView tvName;
     public ImageView civPhoto;
+    public ImageView ivImage;
 
 
     public InboxHolder(View itemView) {
@@ -28,5 +29,6 @@ public class InboxHolder extends BaseViewHolder {
         tvMessage = bindView(R.id.tv_message);
         tvDate = bindView(R.id.tv_date);
         tvName = bindView(R.id.tv_name);
+        ivImage = bindView(R.id.iv_photo);
     }
 }

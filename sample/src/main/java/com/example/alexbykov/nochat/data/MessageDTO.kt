@@ -25,5 +25,6 @@ class MessageDTO {
 //    var links: RealmList<ModelLinks>? = null
     var read: Boolean? = null
     var to: String? = null
+    var image:String?=null
 
 }
