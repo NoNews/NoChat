@@ -71,7 +71,6 @@ public class MainActivity extends AppCompatActivity implements MainActivityView 
         rvChat = findViewById(R.id.rv_chat);
 
 
-
     }
 
 

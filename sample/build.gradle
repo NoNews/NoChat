@@ -32,9 +32,9 @@ dependencies {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
 
-//    compile project(':library')
+    compile project(':library')
 
-    compile 'ru.alexbykov:nochat:0.1.0'
+//    compile 'ru.alexbykov:nochat:0.1.0'
 
     compile "com.android.support:support-vector-drawable:26.1.0"
 

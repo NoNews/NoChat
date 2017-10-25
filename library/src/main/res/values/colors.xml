@@ -2,7 +2,8 @@
 <resources>
 
     <color name="light_grey">#bfbfbf</color>
-    <color name="gray">#D9DDEC</color>
+    <color name="no_chat_gray">#D9DDEC</color>
+    <color name="no_chat_blue">#5E98E7</color>
     <color name="white">#fff</color>
     <color name="new_gray3">#5E616B</color>
 

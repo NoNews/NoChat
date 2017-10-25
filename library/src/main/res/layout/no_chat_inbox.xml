@@ -11,8 +11,8 @@
         android:id="@+id/lt_message"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/no_chat_very_big_margin"
         android:layout_marginStart="@dimen/no_chat_middle_margin"
-        android:layout_marginEnd="@dimen/no_chat_big_margin"
         android:background="@drawable/chat_inbox_normal"
         android:orientation="horizontal">
 
@@ -21,12 +21,22 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/no_chat_horizontal_margin">
 
+            <TextView
+                android:layout_marginTop="@dimen/no_chat_small_margin"
+                android:textColor="@color/no_chat_blue"
+                android:text="Сергей Павлов"
+                android:id="@+id/tv_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
             <FrameLayout
+                android:layout_below="@id/tv_name"
                 android:id="@+id/lt_content"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
 
                 <TextView
+                    android:text="вавлоолаволаволваолваловаловаловаловаловаловалоловаловаловаловаловаловалоавловаловлаолоав"
                     android:id="@+id/tv_message"
                     style="@style/OutboxMessageText"
                     android:layout_width="wrap_content"
@@ -34,7 +44,6 @@
                     android:textColor="@android:color/black" />
 
             </FrameLayout>
-
 
             <TextView
                 android:id="@+id/tv_date"

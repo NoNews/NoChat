@@ -46,7 +46,8 @@ public class MainActivityPresenter implements MessageInputView.OnSendClickListen
             MessageDTO local = new MessageDTO();
             local.setFrom("0");
             local.setMessageId(String.valueOf(i));
-            local.setText("Сообщениеsvhhvchjkcvxjhkvchjkxhjkxvchjkxvchjkxcvhjkcxvjhkcvxkhjcvxkhjcvxkhjvxckjhxcvhjkkchjvxkchjvxkhcjvxkchvx "+i);
+            local.setFrom("Сергей Павлов");
+            local.setText("Сообщениеs www.yandex.ru vhhvchjkcvxjhkvchjkxhjkxvch www.rambler.ru jkxvchjkxcvhjkcxvjhkcvxkhjcvxkhjcvxkhjvxckjhxcvhjkkchjvxkchjvxkhcjvxkchvx "+i);
             messages.add(local);
         }
         return messages;

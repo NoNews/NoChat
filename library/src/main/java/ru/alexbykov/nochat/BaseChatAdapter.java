@@ -56,10 +56,9 @@ public abstract class BaseChatAdapter<M> extends RecyclerView.Adapter<BaseViewHo
             case VIEW_TYPE_OUTBOX:
                 view = inflate(parent, LAYOUT_OUTBOX);
                 return new OutboxHolder(view);
-
             case VIEW_TYPE_PROGRESS:
                 view = inflate(parent, LAYOUT_PROGRESS);
-                return new OutboxHolder(view);
+                return new BaseViewHolder(view);
         }
 
         return null;

@@ -82,6 +82,7 @@ public class ChatAdapter extends BaseChatAdapter<Object> {
     private void setupInbox(MessageDTO message, BaseViewHolder holder) {
         InboxHolder inboxHolder = (InboxHolder) holder;
         inboxHolder.tvMessage.setText(message.getText());
+        inboxHolder.tvName.setText(message.getFrom());
     }
 
 

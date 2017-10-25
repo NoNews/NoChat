@@ -25,6 +25,7 @@
     <style name="OutboxMessageText">
         <item name="android:layout_marginEnd">@dimen/no_chat_horizontal_margin</item>
         <item name="android:layout_marginTop">@dimen/no_chat_small_margin</item>
+        <item name="android:autoLink">web</item>
     </style>
 
 

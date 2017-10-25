@@ -17,16 +17,16 @@ import ru.alexbykov.nochat.R;
 public class InboxHolder extends BaseViewHolder {
 
 
-   public TextView tvMessage;
-   public TextView tvDate;
-   public TextView tvName;
-   public ImageView civPhoto;
+    public TextView tvMessage;
+    public TextView tvDate;
+    public TextView tvName;
+    public ImageView civPhoto;
 
 
     public InboxHolder(View itemView) {
         super(itemView);
         tvMessage = bindView(R.id.tv_message);
         tvDate = bindView(R.id.tv_date);
-//        tvName = bindView(R.id.)
+        tvName = bindView(R.id.tv_name);
     }
 }
