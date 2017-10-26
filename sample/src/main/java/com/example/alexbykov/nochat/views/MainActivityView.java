@@ -16,4 +16,7 @@ public interface MainActivityView {
     void removeMessage(Object message);
     void updateMessage(Object message);
     void addMessages(List<Object> messages);
+    void showNoMoreData(boolean show);
+    void showTopProgress(boolean show);
+    void addMessagesToTop(List<Object> messages);
 }

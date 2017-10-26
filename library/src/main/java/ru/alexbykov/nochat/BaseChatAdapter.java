@@ -42,6 +42,8 @@ public abstract class BaseChatAdapter<M> extends RecyclerView.Adapter<BaseViewHo
 
     private final NoChatProgress noChatProgress = new NoChatProgress();
 
+    private boolean noMoreTopData;
+
 
     private AdapterState adapterState = AdapterState.ON_BOTTOM;
 
@@ -86,13 +88,15 @@ public abstract class BaseChatAdapter<M> extends RecyclerView.Adapter<BaseViewHo
         recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
             @Override
             public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
-                if (NoChatScrollUtils.isOnBottom(recyclerView, loadingTriggerThreshold)) {
-                    bottomListener.run();
-
-                } else if (NoChatScrollUtils.isOnTop(recyclerView, loadingTriggerThreshold)) {
-                    topListener.run();
+                if (NoChatScrollUtils.isOnTop(recyclerView, loadingTriggerThreshold)) {
+                    if (adapterState != AdapterState.IN_PROGRESS) {
+                        topListener.run();
+                    }
+                } else if (NoChatScrollUtils.isOnBottom(recyclerView, loadingTriggerThreshold)) {
+                    if (adapterState != AdapterState.IN_PROGRESS) {
+                        bottomListener.run();
+                    }
                 }
-                super.onScrollStateChanged(recyclerView, newState);
             }
 
             @Override
@@ -166,20 +170,6 @@ public abstract class BaseChatAdapter<M> extends RecyclerView.Adapter<BaseViewHo
         }
     }
 
-    @SuppressWarnings("unchecked")
-    public void showBottomProgress(boolean show) {
-        if (show && adapterState != AdapterState.IN_PROGRESS) {
-            messages.add((M) noChatProgress);
-            adapterState = AdapterState.IN_PROGRESS;
-            notifyItemInserted(getItemCount() - 1);
-        } else {
-            final int lastItemPosition = messages.size() - 1;
-            notifyItemRemoved(lastItemPosition);
-            messages.remove(lastItemPosition);
-            setAdapterState();
-        }
-    }
-
     private void setAdapterState() {
         if (NoChatScrollUtils.isOnBottom(recyclerView, loadingTriggerThreshold)) {
             adapterState = AdapterState.ON_BOTTOM;
@@ -189,16 +179,30 @@ public abstract class BaseChatAdapter<M> extends RecyclerView.Adapter<BaseViewHo
     }
 
     @SuppressWarnings("unchecked")
-    public void showTopProgress(boolean show) {
+    public void showBottomProgress(boolean show) {
         if (show && adapterState != AdapterState.IN_PROGRESS) {
-            messages.add(0, (M) noChatProgress);
+            add((M) noChatProgress, getItemCount() - 1);
             adapterState = AdapterState.IN_PROGRESS;
-            notifyItemInserted(0);
         } else {
-            notifyItemRemoved(0);
-            messages.remove(0);
+            remove(messages.size() - 1);
             setAdapterState();
         }
+    }
+
+    @SuppressWarnings("unchecked")
+    public void showTopProgress(boolean show) {
+        if (show && adapterState != AdapterState.IN_PROGRESS) {
+            add((M) noChatProgress, 0);
+            adapterState = AdapterState.IN_PROGRESS;
+        } else {
+            remove(0);
+            setAdapterState();
+        }
+    }
+
+
+    public void setTopNoMoreData(boolean noMoreData) {
+        this.noMoreTopData = noMoreData;
     }
 
     private void remove(int position) {

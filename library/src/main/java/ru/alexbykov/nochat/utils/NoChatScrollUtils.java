@@ -31,7 +31,7 @@ public class NoChatScrollUtils {
         final int firstVisiblePosition = getFirstVisibleItemPositionByLayoutManager(recyclerView.getLayoutManager());
 
         final int topPosition = recyclerView.getLayoutManager().findViewByPosition(firstVisiblePosition).getTop();
-        return (/*topPosition-loadingTriggerThreshold == 0 && */firstVisiblePosition <= loadingTriggerThreshold);
+        return (topPosition== 0 && firstVisiblePosition == 0);
     }
 
     private static int getFirstVisibleItemPositionByLayoutManager(RecyclerView.LayoutManager layoutManager) {

@@ -58,22 +58,28 @@ public class MainActivity extends AppCompatActivity implements MainActivityView 
 
         });
 
-        chatAdapter.onBottom(() -> Log.d("CHAT_ADAPTER", "run: bottom"));
-        chatAdapter.onTop(() -> Log.d("CHAT_ADAPTER", "run: top"));
+        chatAdapter.onTop(() -> mainActivityPresenter.onTopLoadMore());
+        chatAdapter.onBottom(() -> {
 
-        findViewById(R.id.add_progress).setOnClickListener(v -> chatAdapter.showTopProgress(true));
-        findViewById(R.id.stop_progress).setOnClickListener(v -> chatAdapter.showTopProgress(false));
+        });
     }
 
 
     private void bindViews() {
         ltInput = findViewById(R.id.lt_input);
         rvChat = findViewById(R.id.rv_chat);
-
-
     }
 
 
+    public void addMessagesToTop(List<Object> messages) {
+        chatAdapter.addMessages(messages,AddMessagesMode.TO_START);
+    }
+
+
+    @Override
+    public void showNoMoreData(boolean show) {
+
+    }
 
     @Override
     public void newMessage(Object message) {
