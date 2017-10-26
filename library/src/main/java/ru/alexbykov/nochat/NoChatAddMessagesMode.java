@@ -7,7 +7,7 @@ package ru.alexbykov.nochat;
  *         You can contact me at me@alexbykov.ru
  */
 
-public enum AddMessagesMode {
+public enum NoChatAddMessagesMode {
 
     TO_END,
     TO_START,

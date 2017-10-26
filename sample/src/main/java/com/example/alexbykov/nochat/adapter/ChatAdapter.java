@@ -6,15 +6,14 @@ import android.view.View;
 import com.example.alexbykov.nochat.data.MessageDTO;
 import com.squareup.picasso.Picasso;
 
-import ru.alexbykov.nochat.models.NoChatDate;
 import ru.alexbykov.nochat.models.NoChatProgress;
-import ru.alexbykov.nochat.holders.BaseViewHolder;
-import ru.alexbykov.nochat.holders.InboxHolder;
-import ru.alexbykov.nochat.holders.OutboxHolder;
+import ru.alexbykov.nochat.holders.NoChatBaseViewHolder;
+import ru.alexbykov.nochat.holders.NoChatInboxHolder;
+import ru.alexbykov.nochat.holders.NoChatOutboxHolder;
 
 import java.util.ArrayList;
 
-import ru.alexbykov.nochat.BaseChatAdapter;
+import ru.alexbykov.nochat.BaseNoChatAdapter;
 
 /**
  * @author Alex Bykov
@@ -23,7 +22,7 @@ import ru.alexbykov.nochat.BaseChatAdapter;
  *         You can contact me at me@alexbykov.ru
  */
 
-public class ChatAdapter extends BaseChatAdapter<Object> {
+public class ChatAdapter extends BaseNoChatAdapter<Object> {
 
 
     private Context context;
@@ -54,7 +53,7 @@ public class ChatAdapter extends BaseChatAdapter<Object> {
     }
 
     @Override
-    public void onBindViewHolder(BaseViewHolder holder, int position) {
+    public void onBindViewHolder(NoChatBaseViewHolder holder, int position) {
 
         final int itemViewType = getItemViewType(position);
 
@@ -75,14 +74,14 @@ public class ChatAdapter extends BaseChatAdapter<Object> {
         super.onBindViewHolder(holder, position);
     }
 
-    private void setupOutbox(MessageDTO message, BaseViewHolder holder) {
-        OutboxHolder outboxHolder = (OutboxHolder) holder;
+    private void setupOutbox(MessageDTO message, NoChatBaseViewHolder holder) {
+        NoChatOutboxHolder outboxHolder = (NoChatOutboxHolder) holder;
         outboxHolder.tvMessage.setText(message.getText());
 //        outboxHolder.tvDate.setText(message.getDate());
     }
 
-    private void setupInbox(MessageDTO message, BaseViewHolder holder) {
-        InboxHolder inboxHolder = (InboxHolder) holder;
+    private void setupInbox(MessageDTO message, NoChatBaseViewHolder holder) {
+        NoChatInboxHolder inboxHolder = (NoChatInboxHolder) holder;
         inboxHolder.tvMessage.setText(message.getText());
         inboxHolder.tvName.setText(message.getFrom());
         if (message.getImage()!=null){

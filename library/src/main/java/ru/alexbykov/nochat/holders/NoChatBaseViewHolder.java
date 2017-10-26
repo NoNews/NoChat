@@ -11,8 +11,8 @@ import android.view.View;
  *         You can contact me at me@alexbykov.ru
  */
 
-public class BaseViewHolder extends RecyclerView.ViewHolder {
-    public BaseViewHolder(View itemView) {
+public class NoChatBaseViewHolder extends RecyclerView.ViewHolder {
+    public NoChatBaseViewHolder(View itemView) {
         super(itemView);
     }
 

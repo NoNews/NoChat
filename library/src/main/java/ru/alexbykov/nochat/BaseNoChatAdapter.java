@@ -8,9 +8,9 @@ import android.view.ViewGroup;
 
 import java.util.List;
 
-import ru.alexbykov.nochat.holders.BaseViewHolder;
-import ru.alexbykov.nochat.holders.InboxHolder;
-import ru.alexbykov.nochat.holders.OutboxHolder;
+import ru.alexbykov.nochat.holders.NoChatBaseViewHolder;
+import ru.alexbykov.nochat.holders.NoChatInboxHolder;
+import ru.alexbykov.nochat.holders.NoChatOutboxHolder;
 import ru.alexbykov.nochat.models.NoChatProgress;
 import ru.alexbykov.nochat.utils.NoChatScrollUtils;
 
@@ -21,7 +21,7 @@ import ru.alexbykov.nochat.utils.NoChatScrollUtils;
  *         You can contact me at me@alexbykov.ru
  */
 
-public abstract class BaseChatAdapter<M> extends RecyclerView.Adapter<BaseViewHolder> {
+public abstract class BaseNoChatAdapter<M> extends RecyclerView.Adapter<NoChatBaseViewHolder> {
 
 
     protected List<M> messages;
@@ -45,22 +45,22 @@ public abstract class BaseChatAdapter<M> extends RecyclerView.Adapter<BaseViewHo
     private boolean noMoreTopData;
 
 
-    private AdapterState adapterState = AdapterState.ON_BOTTOM;
+    private NoChatAdapterState adapterState = NoChatAdapterState.ON_BOTTOM;
 
     @Override
-    public BaseViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public NoChatBaseViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
 
         View view = null;
         switch (viewType) {
             case VIEW_TYPE_INBOX:
                 view = inflate(parent, LAYOUT_INBOX);
-                return new InboxHolder(view);
+                return new NoChatInboxHolder(view);
             case VIEW_TYPE_OUTBOX:
                 view = inflate(parent, LAYOUT_OUTBOX);
-                return new OutboxHolder(view);
+                return new NoChatOutboxHolder(view);
             case VIEW_TYPE_PROGRESS:
                 view = inflate(parent, LAYOUT_PROGRESS);
-                return new BaseViewHolder(view);
+                return new NoChatBaseViewHolder(view);
         }
 
         return null;
@@ -68,7 +68,7 @@ public abstract class BaseChatAdapter<M> extends RecyclerView.Adapter<BaseViewHo
 
 
     @Override
-    public void onBindViewHolder(BaseViewHolder holder, int position) {
+    public void onBindViewHolder(NoChatBaseViewHolder holder, int position) {
 
     }
 
@@ -89,11 +89,11 @@ public abstract class BaseChatAdapter<M> extends RecyclerView.Adapter<BaseViewHo
             @Override
             public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
                 if (NoChatScrollUtils.isOnTop(recyclerView, loadingTriggerThreshold)) {
-                    if (adapterState != AdapterState.IN_PROGRESS) {
+                    if (adapterState != NoChatAdapterState.IN_PROGRESS) {
                         topListener.run();
                     }
                 } else if (NoChatScrollUtils.isOnBottom(recyclerView, loadingTriggerThreshold)) {
-                    if (adapterState != AdapterState.IN_PROGRESS) {
+                    if (adapterState != NoChatAdapterState.IN_PROGRESS) {
                         bottomListener.run();
                     }
                 }
@@ -129,7 +129,7 @@ public abstract class BaseChatAdapter<M> extends RecyclerView.Adapter<BaseViewHo
 
     }
 
-    public void addMessages(List<M> newMessages, AddMessagesMode messagesMode) {
+    public void addMessages(List<M> newMessages, NoChatAddMessagesMode messagesMode) {
         switch (messagesMode) {
             case TO_END:
                 addAll(newMessages, messages.size() - 1);
@@ -172,17 +172,17 @@ public abstract class BaseChatAdapter<M> extends RecyclerView.Adapter<BaseViewHo
 
     private void setAdapterState() {
         if (NoChatScrollUtils.isOnBottom(recyclerView, loadingTriggerThreshold)) {
-            adapterState = AdapterState.ON_BOTTOM;
+            adapterState = NoChatAdapterState.ON_BOTTOM;
         } else if (NoChatScrollUtils.isOnTop(recyclerView, loadingTriggerThreshold)) {
-            adapterState = AdapterState.ON_TOP;
-        } else adapterState = AdapterState.SCROLLING_OR_MIDDLE;
+            adapterState = NoChatAdapterState.ON_TOP;
+        } else adapterState = NoChatAdapterState.SCROLLING_OR_MIDDLE;
     }
 
     @SuppressWarnings("unchecked")
     public void showBottomProgress(boolean show) {
-        if (show && adapterState != AdapterState.IN_PROGRESS) {
+        if (show && adapterState != NoChatAdapterState.IN_PROGRESS) {
             add((M) noChatProgress, getItemCount() - 1);
-            adapterState = AdapterState.IN_PROGRESS;
+            adapterState = NoChatAdapterState.IN_PROGRESS;
         } else {
             remove(messages.size() - 1);
             setAdapterState();
@@ -191,9 +191,9 @@ public abstract class BaseChatAdapter<M> extends RecyclerView.Adapter<BaseViewHo
 
     @SuppressWarnings("unchecked")
     public void showTopProgress(boolean show) {
-        if (show && adapterState != AdapterState.IN_PROGRESS) {
+        if (show && adapterState != NoChatAdapterState.IN_PROGRESS) {
             add((M) noChatProgress, 0);
-            adapterState = AdapterState.IN_PROGRESS;
+            adapterState = NoChatAdapterState.IN_PROGRESS;
         } else {
             remove(0);
             setAdapterState();

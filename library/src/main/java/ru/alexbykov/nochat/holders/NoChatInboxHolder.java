@@ -14,18 +14,21 @@ import ru.alexbykov.nochat.R;
  *         You can contact me at me@alexbykov.ru
  */
 
-public class OutboxHolder extends BaseViewHolder {
+public class NoChatInboxHolder extends NoChatBaseViewHolder {
+
 
     public TextView tvMessage;
     public TextView tvDate;
     public TextView tvName;
     public ImageView civPhoto;
-    public ImageView ivPhoto;
+    public ImageView ivImage;
 
-    public OutboxHolder(View itemView) {
+
+    public NoChatInboxHolder(View itemView) {
         super(itemView);
         tvMessage = bindView(R.id.tv_message);
         tvDate = bindView(R.id.tv_date);
-        ivPhoto = bindView(R.id.iv_photo);
+        tvName = bindView(R.id.tv_name);
+        ivImage = bindView(R.id.iv_photo);
     }
 }

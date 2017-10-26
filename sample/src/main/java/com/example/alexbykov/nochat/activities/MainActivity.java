@@ -4,7 +4,6 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 
 import com.example.alexbykov.nochat.R;
 import com.example.alexbykov.nochat.adapter.ChatAdapter;
@@ -13,7 +12,7 @@ import com.example.alexbykov.nochat.views.MainActivityView;
 
 import java.util.List;
 
-import ru.alexbykov.nochat.AddMessagesMode;
+import ru.alexbykov.nochat.NoChatAddMessagesMode;
 import ru.alexbykov.nochat.custom_views.MessageInputView;
 
 public class MainActivity extends AppCompatActivity implements MainActivityView {
@@ -72,7 +71,7 @@ public class MainActivity extends AppCompatActivity implements MainActivityView 
 
 
     public void addMessagesToTop(List<Object> messages) {
-        chatAdapter.addMessages(messages,AddMessagesMode.TO_START);
+        chatAdapter.addMessages(messages, NoChatAddMessagesMode.TO_START);
     }
 
 
@@ -98,7 +97,7 @@ public class MainActivity extends AppCompatActivity implements MainActivityView 
 
     @Override
     public void addMessages(List<Object> messages) {
-        chatAdapter.addMessages(messages, AddMessagesMode.INSTEAD_ALL);
+        chatAdapter.addMessages(messages, NoChatAddMessagesMode.INSTEAD_ALL);
     }
 
     public void showTopProgress(boolean show) {

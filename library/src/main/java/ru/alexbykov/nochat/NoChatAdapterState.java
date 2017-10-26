@@ -7,7 +7,7 @@ package ru.alexbykov.nochat;
  *         You can contact me at me@alexbykov.ru
  */
 
-public enum AdapterState {
+public enum NoChatAdapterState {
 
     IN_PROGRESS,
     ON_BOTTOM, //user is on bottom
