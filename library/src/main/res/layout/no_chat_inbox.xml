@@ -35,13 +35,12 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/tv_name">
 
+
                 <ImageView
                     android:id="@+id/iv_photo"
                     style="@style/NoChatImageStyle"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/no_chat_small_margin" />
-
+                    android:layout_width="@dimen/no_chat_image_width"
+                    android:layout_height="@dimen/no_chat_image_height" />
 
                 <TextView
                     android:id="@+id/tv_message"

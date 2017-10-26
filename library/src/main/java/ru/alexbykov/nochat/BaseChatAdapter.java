@@ -210,4 +210,12 @@ public abstract class BaseChatAdapter<M> extends RecyclerView.Adapter<BaseViewHo
         messages.remove(position);
     }
 
+
+    public void unsubscribe() {
+        messages = null;
+        topListener = null;
+        bottomListener = null;
+        recyclerView.addOnScrollListener(null);
+        recyclerView = null;
+    }
 }

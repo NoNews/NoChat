@@ -1,6 +1,7 @@
 package ru.alexbykov.nochat.holders;
 
 import android.view.View;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 

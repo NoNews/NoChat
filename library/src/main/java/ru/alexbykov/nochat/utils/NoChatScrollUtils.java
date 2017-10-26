@@ -29,7 +29,6 @@ public class NoChatScrollUtils {
 
     public static boolean isOnTop(RecyclerView recyclerView, int loadingTriggerThreshold) {
         final int firstVisiblePosition = getFirstVisibleItemPositionByLayoutManager(recyclerView.getLayoutManager());
-
         final int topPosition = recyclerView.getLayoutManager().findViewByPosition(firstVisiblePosition).getTop();
         return (topPosition== 0 && firstVisiblePosition == 0);
     }

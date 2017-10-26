@@ -29,7 +29,6 @@
     </style>
 
 
-
     <style name="NoChatDateStyle">
         <item name="android:layout_marginEnd">@dimen/no_chat_small_margin</item>
         <item name="android:textColor">@color/new_gray3</item>
@@ -41,7 +40,9 @@
 
     <style name="NoChatNameStyle">
         <item name="android:textColor">@color/no_chat_blue</item>
+        <item name="android:textStyle">bold</item>
         <item name="android:layout_marginEnd">@dimen/no_chat_horizontal_margin</item>
+        <item name="android:ellipsize">end</item>
     </style>
 
     <style name="NoChatAvatarStyle">
@@ -49,9 +50,10 @@
     </style>
 
     <style name="NoChatImageStyle">
-        <item name="android:scaleType">fitXY</item>
+        <item name="android:scaleType">centerCrop</item>
+        <item name="android:layout_marginTop">@dimen/no_chat_small_margin</item>
+        <item name="android:visibility">gone</item>
     </style>
-
 
 
     <style name="NoChatContentStyle">
@@ -60,10 +62,7 @@
     </style>
 
 
-
     <string name="no_chat_insert_message_hint">Сообщение</string>
-
-
 
 
 </resources>
