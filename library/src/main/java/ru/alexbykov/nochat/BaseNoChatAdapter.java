@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import java.util.List;
 
 import ru.alexbykov.nochat.holders.NoChatBaseViewHolder;
+import ru.alexbykov.nochat.holders.NoChatDateHolder;
 import ru.alexbykov.nochat.holders.NoChatInboxHolder;
 import ru.alexbykov.nochat.holders.NoChatOutboxHolder;
 import ru.alexbykov.nochat.models.NoChatProgress;
@@ -34,6 +35,7 @@ public abstract class BaseNoChatAdapter<M> extends RecyclerView.Adapter<NoChatBa
     private static final int LAYOUT_INBOX = R.layout.no_chat_inbox;
     private static final int LAYOUT_OUTBOX = R.layout.no_chat_outbox;
     private static final int LAYOUT_PROGRESS = R.layout.no_chat_progress;
+    private static final int LAYOUT_DATE = R.layout.no_chat_date;
 
     protected static final int VIEW_TYPE_INBOX = 0;
     protected static final int VIEW_TYPE_OUTBOX = 1;
@@ -58,9 +60,15 @@ public abstract class BaseNoChatAdapter<M> extends RecyclerView.Adapter<NoChatBa
             case VIEW_TYPE_OUTBOX:
                 view = inflate(parent, LAYOUT_OUTBOX);
                 return new NoChatOutboxHolder(view);
+
+            case VIEW_TYPE_DATE:
+                view = inflate(parent, LAYOUT_DATE);
+                return new NoChatDateHolder(view);
+
             case VIEW_TYPE_PROGRESS:
                 view = inflate(parent, LAYOUT_PROGRESS);
                 return new NoChatBaseViewHolder(view);
+
         }
 
         return null;

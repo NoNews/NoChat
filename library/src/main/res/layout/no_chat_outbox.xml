@@ -19,9 +19,9 @@
         android:orientation="horizontal">
 
         <RelativeLayout
-            android:layout_marginStart="@dimen/no_chat_horizontal_margin"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/no_chat_horizontal_margin">
 
             <FrameLayout
                 android:id="@+id/lt_content"
@@ -40,8 +40,7 @@
                     android:id="@+id/tv_message"
                     style="@style/NoChatOutboxMessageText"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="fjdkfjkkjdjkfdkjdfkjdfkjdfkjfdkjkjdfkjdfkjdfkj" />
+                    android:layout_height="wrap_content" />
             </FrameLayout>
 
 
@@ -50,8 +49,7 @@
                 style="@style/NoChatDateStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/lt_content"
-                android:text="24:00" />
+                android:layout_below="@+id/lt_content" />
 
         </RelativeLayout>
 
