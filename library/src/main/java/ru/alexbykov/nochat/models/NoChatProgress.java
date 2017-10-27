@@ -8,4 +8,7 @@ package ru.alexbykov.nochat.models;
  */
 
 public class NoChatProgress {
+
+
+
 }
