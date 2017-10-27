@@ -8,4 +8,10 @@ package ru.alexbykov.nochat.models;
  */
 
 public class NoChatDate {
+
+    private String date;
+
+    public NoChatDate(String date) {
+        this.date = date;
+    }
 }

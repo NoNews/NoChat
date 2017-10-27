@@ -20,7 +20,7 @@ public class NoChatInboxHolder extends NoChatBaseViewHolder {
     public TextView tvMessage;
     public TextView tvDate;
     public TextView tvName;
-    public ImageView civPhoto;
+    public ImageView civProfileImage;
     public ImageView ivImage;
 
 
@@ -30,5 +30,6 @@ public class NoChatInboxHolder extends NoChatBaseViewHolder {
         tvDate = bindView(R.id.tv_date);
         tvName = bindView(R.id.tv_name);
         ivImage = bindView(R.id.iv_photo);
+        civProfileImage = bindView(R.id.civ_profile_image);
     }
 }

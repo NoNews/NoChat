@@ -26,5 +26,6 @@ class MessageDTO {
     var read: Boolean? = null
     var to: String? = null
     var image:String?=null
+    var authorPhoto:String?=null
 
 }

@@ -84,14 +84,18 @@ public class ChatAdapter extends BaseNoChatAdapter<Object> {
         NoChatInboxHolder inboxHolder = (NoChatInboxHolder) holder;
         inboxHolder.tvMessage.setText(message.getText());
         inboxHolder.tvName.setText(message.getFrom());
+
         if (message.getImage()!=null){
             Picasso.with(inboxHolder.ivImage.getContext())
                     .load(message.getImage())
                     .into(inboxHolder.ivImage);
             inboxHolder.tvMessage.setVisibility(View.GONE);
             inboxHolder.ivImage.setVisibility(View.VISIBLE);
-
         }
+
+
+        Picasso.with(inboxHolder.ivImage.getContext())
+                .load(message.getAuthorPhoto()).into(inboxHolder.civProfileImage);
     }
 
 

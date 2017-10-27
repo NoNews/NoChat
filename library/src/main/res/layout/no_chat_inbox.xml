@@ -7,14 +7,22 @@
     android:paddingTop="@dimen/no_chat_middle_margin">
 
 
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/civ_profile_image"
+        android:layout_width="@dimen/no_chat_small_photo"
+        android:layout_height="@dimen/no_chat_small_photo"
+        android:layout_marginStart="@dimen/no_chat_middle_margin" />
+
     <LinearLayout
         android:id="@+id/lt_message"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="@dimen/no_chat_very_big_margin"
         android:layout_marginStart="@dimen/no_chat_middle_margin"
+        android:layout_toEndOf="@id/civ_profile_image"
         android:background="@drawable/chat_inbox_normal"
         android:orientation="horizontal">
+
 
         <RelativeLayout
             android:layout_width="wrap_content"
@@ -46,7 +54,8 @@
                     android:id="@+id/tv_message"
                     style="@style/NoChatOutboxMessageText"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:text="dfdfdfjdkfd" />
 
             </FrameLayout>
 
