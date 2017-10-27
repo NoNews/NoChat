@@ -98,11 +98,11 @@ public abstract class BaseNoChatAdapter<M> extends RecyclerView.Adapter<NoChatBa
             @Override
             public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
                 if (NoChatScrollUtils.isOnTop(recyclerView, loadingTriggerThreshold)) {
-                    if (adapterState != NoChatAdapterState.IN_PROGRESS && !noMoreBottomData) {
+                    if (adapterState != NoChatAdapterState.IN_PROGRESS && !noMoreTopData) {
                         topListener.run();
                     }
                 } else if (NoChatScrollUtils.isOnBottom(recyclerView, loadingTriggerThreshold)) {
-                    if (adapterState != NoChatAdapterState.IN_PROGRESS&& !noMoreTopData) {
+                    if (adapterState != NoChatAdapterState.IN_PROGRESS && !noMoreBottomData) {
                         bottomListener.run();
                     }
                 }
@@ -215,7 +215,7 @@ public abstract class BaseNoChatAdapter<M> extends RecyclerView.Adapter<NoChatBa
     }
 
     public void setBottomNoMoreData(boolean noMoreBottomData) {
-        this.noMoreBottomData=noMoreBottomData;
+        this.noMoreBottomData = noMoreBottomData;
     }
 
     private void remove(int position) {
