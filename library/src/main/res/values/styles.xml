@@ -61,6 +61,16 @@
         <item name="android:layout_marginEnd">@dimen/no_chat_horizontal_margin</item>
     </style>
 
+    <style name="NoChatHeaderDateStyle">
+        <item name="android:paddingBottom">@dimen/no_chat_small_margin</item>
+        <item name="android:paddingTop">@dimen/no_chat_small_margin</item>
+        <item name="android:paddingStart">@dimen/no_chat_middle_margin</item>
+        <item name="android:paddingEnd">@dimen/no_chat_middle_margin</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:background">@drawable/no_chat_date_background</item>
+    </style>
+
+
 
     <string name="no_chat_insert_message_hint">Сообщение</string>
 
