@@ -3,6 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="horizontal"
+    android:id="@+id/lt_message_root"
     android:paddingBottom="@dimen/no_chat_middle_margin"
     android:paddingTop="@dimen/no_chat_middle_margin">
 

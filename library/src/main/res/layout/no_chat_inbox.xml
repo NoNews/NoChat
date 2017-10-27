@@ -2,6 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:id="@+id/lt_message_root"
     android:orientation="horizontal"
     android:paddingBottom="@dimen/no_chat_middle_margin"
     android:paddingTop="@dimen/no_chat_middle_margin">
@@ -54,8 +55,7 @@
                     android:id="@+id/tv_message"
                     style="@style/NoChatOutboxMessageText"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="dfdfdfjdkfd" />
+                    android:layout_height="wrap_content"  />
 
             </FrameLayout>
 
