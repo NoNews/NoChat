@@ -8,6 +8,8 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import ru.alexbykov.nochat.R;
+
 /**
  * @author Alex Bykov
  *         Date: 20.10.17.
@@ -34,6 +36,20 @@ public class NoChatBaseViewHolder extends RecyclerView.ViewHolder {
     public NoChatBaseViewHolder(View itemView) {
         super(itemView);
     }
+
+
+    protected final void bindBubbleViews() {
+        tvFileName = bindView(R.id.tv_file_name);
+        ivFileImage = bindView(R.id.iv_file_image);
+        tvFileSize = bindView(R.id.tv_file_size);
+        ltFileContent = bindView(R.id.lt_file_content);
+        tvMessage = bindView(R.id.tv_message);
+        tvDate = bindView(R.id.tv_date);
+        ivImage = bindView(R.id.iv_image);
+        ltMessageRoot = bindView(R.id.lt_message_root);
+        ltMessage = bindView(R.id.lt_message);
+    }
+
 
     @SuppressWarnings("unchecked")
     protected final <T extends View> T bindView(@IdRes int id) {
