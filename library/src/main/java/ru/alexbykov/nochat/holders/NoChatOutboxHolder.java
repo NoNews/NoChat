@@ -18,11 +18,11 @@ import ru.alexbykov.nochat.R;
 
 public class NoChatOutboxHolder extends NoChatBaseViewHolder {
 
-    public TextView tvMessage;
-    public TextView tvDate;
-    public ImageView ivImage;
-    public RelativeLayout ltMessageRoot;
-    public LinearLayout ltMessage;
+//    public TextView tvMessage;
+//    public TextView tvDate;
+//    public ImageView ivImage;
+//    public RelativeLayout ltMessageRoot;
+//    public LinearLayout ltMessage;
 
     public NoChatOutboxHolder(View itemView) {
         super(itemView);
