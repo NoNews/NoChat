@@ -22,11 +22,5 @@ public class NoChatOutboxHolder extends NoChatBaseViewHolder {
     public NoChatOutboxHolder(View itemView) {
         super(itemView);
         bindBubbleViews();
-
-//        tvMessage = bindView(R.id.tv_message);
-//        tvDate = bindView(R.id.tv_date);
-//        ivImage = bindView(R.id.iv_image);
-//        ltMessageRoot = bindView(R.id.lt_message_root);
-//        ltMessage = bindView(R.id.lt_message);
     }
 }

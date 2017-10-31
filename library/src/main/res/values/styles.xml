@@ -43,6 +43,7 @@
         <item name="android:textStyle">bold</item>
         <item name="android:layout_marginEnd">@dimen/no_chat_horizontal_margin</item>
         <item name="android:ellipsize">end</item>
+        <item name="android:maxLines">1</item>
     </style>
 
     <style name="NoChatAvatarStyle">
@@ -62,14 +63,17 @@
     </style>
 
     <style name="NoChatHeaderDateStyle">
-        <item name="android:paddingBottom">@dimen/no_chat_small_margin</item>
-        <item name="android:paddingTop">@dimen/no_chat_small_margin</item>
+        <item name="android:paddingBottom">@dimen/no_chat_very_small_margin</item>
+        <item name="android:layout_marginTop">@dimen/no_chat_very_small_margin</item>
+        <item name="android:layout_marginBottom">@dimen/no_chat_very_small_margin</item>
+        <item name="android:paddingTop">@dimen/no_chat_very_small_margin</item>
         <item name="android:paddingStart">@dimen/no_chat_middle_margin</item>
         <item name="android:paddingEnd">@dimen/no_chat_middle_margin</item>
         <item name="android:textColor">@color/white</item>
         <item name="android:background">@drawable/no_chat_date_background</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">11sp</item>
     </style>
-
 
 
     <string name="no_chat_insert_message_hint">Сообщение</string>

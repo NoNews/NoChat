@@ -3,6 +3,7 @@ package com.example.alexbykov.nochat.adapter;
 import android.content.Context;
 import android.view.View;
 
+import com.example.alexbykov.nochat.R;
 import com.example.alexbykov.nochat.data.MessageDTO;
 import com.squareup.picasso.Picasso;
 
@@ -82,7 +83,7 @@ public class ChatAdapter extends BaseNoChatAdapter<Object> {
 
     private void setupInbox(MessageDTO message, NoChatBaseViewHolder holder) {
         NoChatInboxHolder inboxHolder = (NoChatInboxHolder) holder;
-        inboxHolder.tvMessage.setText(message.getText());
+//        inboxHolder.tvMessage.setText(message.getText());
         inboxHolder.tvName.setText(message.getFrom());
 
         if (message.getImage()!=null){
@@ -94,8 +95,13 @@ public class ChatAdapter extends BaseNoChatAdapter<Object> {
         }
 
 
-        Picasso.with(inboxHolder.ivImage.getContext())
-                .load(message.getAuthorPhoto()).into(inboxHolder.civProfileImage);
+
+        inboxHolder.ltFileContent.setVisibility(View.VISIBLE);
+        inboxHolder.tvFileName.setText("Файл");
+        inboxHolder.tvFileSize.setText("3333");
+        inboxHolder.ivFileImage.setBackgroundResource(R.drawable.ic_chat_attach);
+
+        Picasso.with(inboxHolder.ivImage.getContext()).load(message.getAuthorPhoto()).into(inboxHolder.civProfileImage);
     }
 
 

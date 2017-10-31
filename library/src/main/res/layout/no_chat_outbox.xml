@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/lt_message_root"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="horizontal"
-    android:id="@+id/lt_message_root"
     android:paddingBottom="@dimen/no_chat_very_small_margin"
     android:paddingTop="@dimen/no_chat_very_small_margin">
 
@@ -24,34 +24,9 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/no_chat_horizontal_margin">
 
-            <!--<FrameLayout-->
-                <!--android:id="@+id/lt_content"-->
-                <!--style="@style/NoChatContentStyle"-->
-                <!--android:layout_width="wrap_content"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:layout_below="@id/tv_name">-->
-
-
-                <!--<ImageView-->
-                    <!--android:id="@+id/iv_image"-->
-                    <!--style="@style/NoChatImageStyle"-->
-                    <!--android:layout_width="@dimen/no_chat_image_width"-->
-                    <!--android:layout_height="@dimen/no_chat_image_height" />-->
-
-                <!--<TextView-->
-                    <!--android:id="@+id/tv_message"-->
-                    <!--style="@style/NoChatOutboxMessageText"-->
-                    <!--android:layout_width="wrap_content"-->
-                    <!--android:layout_height="wrap_content"  />-->
-
-                <!--<include layout="@layout/no_chat_file_content"/>-->
-
-            <!--</FrameLayout>-->
-
             <include
                 android:id="@+id/lt_content_group"
-                layout="@layout/no_chat_message_content"/>
-
+                layout="@layout/no_chat_message_content" />
 
 
             <TextView
