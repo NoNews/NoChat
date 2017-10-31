@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
-    android:visibility="gone"
+    android:visibility="visible"
+    android:paddingStart="@dimen/no_chat_small_margin"
+    android:paddingEnd="@dimen/no_chat_small_margin"
     android:background="?attr/selectableItemBackground"
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_marginTop="@dimen/no_chat_very_small_margin"
@@ -10,6 +12,7 @@
     android:layout_height="wrap_content">
 
     <ImageView
+        android:src="@color/no_chat_blue"
         android:id="@+id/iv_file_image"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
@@ -23,12 +26,15 @@
         android:orientation="vertical">
 
         <TextView
+            android:maxLines="1"
+            android:ellipsize="end"
             android:textStyle="bold"
             android:id="@+id/tv_file_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 
         <TextView
+            android:textSize="@dimen/no_chat_small_text_size"
             android:id="@+id/tv_file_size"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
