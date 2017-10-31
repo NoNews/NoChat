@@ -12,7 +12,6 @@
     android:layout_height="wrap_content">
 
     <ImageView
-        android:src="@color/no_chat_blue"
         android:id="@+id/iv_file_image"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
