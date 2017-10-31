@@ -20,9 +20,7 @@ public class NoChatOutboxHolder extends NoChatBaseViewHolder {
 
     public TextView tvMessage;
     public TextView tvDate;
-    public TextView tvName;
-    public ImageView civPhoto;
-    public ImageView ivPhoto;
+    public ImageView ivImage;
     public RelativeLayout ltMessageRoot;
     public LinearLayout ltMessage;
 
@@ -30,7 +28,7 @@ public class NoChatOutboxHolder extends NoChatBaseViewHolder {
         super(itemView);
         tvMessage = bindView(R.id.tv_message);
         tvDate = bindView(R.id.tv_date);
-        ivPhoto = bindView(R.id.iv_photo);
+        ivImage = bindView(R.id.iv_image);
         ltMessageRoot = bindView(R.id.lt_message_root);
         ltMessage = bindView(R.id.lt_message);
     }

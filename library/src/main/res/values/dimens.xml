@@ -2,6 +2,7 @@
 <resources>
 
     <dimen name="no_chat_small_margin">4dp</dimen>
+    <dimen name="no_chat_very_small_margin">2dp</dimen>
     <dimen name="no_chat_bubble_radios">16dp</dimen>
     <dimen name="no_chat_middle_margin">8dp</dimen>
     <dimen name="no_chat_big_margin">16dp</dimen>

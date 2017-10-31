@@ -4,8 +4,8 @@
     android:layout_height="wrap_content"
     android:id="@+id/lt_message_root"
     android:orientation="horizontal"
-    android:paddingBottom="@dimen/no_chat_middle_margin"
-    android:paddingTop="@dimen/no_chat_middle_margin">
+    android:paddingBottom="@dimen/no_chat_very_small_margin"
+    android:paddingTop="@dimen/no_chat_very_small_margin">
 
 
     <de.hdodenhof.circleimageview.CircleImageView
@@ -37,34 +37,39 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/no_chat_small_margin" />
 
-            <FrameLayout
-                android:id="@+id/lt_content"
-                style="@style/NoChatContentStyle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/tv_name">
+            <!--<FrameLayout-->
+                <!--android:id="@+id/lt_content"-->
+                <!--style="@style/NoChatContentStyle"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_below="@id/tv_name">-->
 
 
-                <ImageView
-                    android:id="@+id/iv_photo"
-                    style="@style/NoChatImageStyle"
-                    android:layout_width="@dimen/no_chat_image_width"
-                    android:layout_height="@dimen/no_chat_image_height" />
+                <!--<ImageView-->
+                    <!--android:id="@+id/iv_image"-->
+                    <!--style="@style/NoChatImageStyle"-->
+                    <!--android:layout_width="@dimen/no_chat_image_width"-->
+                    <!--android:layout_height="@dimen/no_chat_image_height" />-->
 
-                <TextView
-                    android:id="@+id/tv_message"
-                    style="@style/NoChatOutboxMessageText"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"  />
+                <!--<TextView-->
+                    <!--android:id="@+id/tv_message"-->
+                    <!--style="@style/NoChatOutboxMessageText"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"  />-->
 
-            </FrameLayout>
+                <!--<include layout="@layout/no_chat_file_content"/>-->
+
+            <!--</FrameLayout>-->
+            <include
+                android:id="@+id/lt_content_group"
+                layout="@layout/no_chat_message_content"/>
 
             <TextView
                 android:id="@+id/tv_date"
                 style="@style/NoChatDateStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/lt_content" />
+                android:layout_below="@+id/lt_content_group" />
 
         </RelativeLayout>
 
