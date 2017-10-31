@@ -98,13 +98,9 @@ public abstract class BaseNoChatAdapter<M> extends RecyclerView.Adapter<NoChatBa
             @Override
             public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
                 if (NoChatScrollUtils.isOnTop(recyclerView, loadingTriggerThreshold)) {
-                    if (adapterState != NoChatAdapterState.IN_PROGRESS && !noMoreTopData) {
-                        topListener.run();
-                    }
+                    runTopListener();
                 } else if (NoChatScrollUtils.isOnBottom(recyclerView, loadingTriggerThreshold)) {
-                    if (adapterState != NoChatAdapterState.IN_PROGRESS && !noMoreBottomData) {
-                        bottomListener.run();
-                    }
+                    runBottomListener();
                 }
             }
 
@@ -114,6 +110,18 @@ public abstract class BaseNoChatAdapter<M> extends RecyclerView.Adapter<NoChatBa
             }
         });
         super.onAttachedToRecyclerView(recyclerView);
+    }
+
+    private void runBottomListener() {
+        if (adapterState != NoChatAdapterState.IN_PROGRESS && !noMoreBottomData && bottomListener != null) {
+            bottomListener.run();
+        }
+    }
+
+    private void runTopListener() {
+        if (adapterState != NoChatAdapterState.IN_PROGRESS && !noMoreTopData && topListener != null) {
+            topListener.run();
+        }
     }
 
     @Override
@@ -128,14 +136,16 @@ public abstract class BaseNoChatAdapter<M> extends RecyclerView.Adapter<NoChatBa
 
     public void removeMessage(M t) {
 
+        for (int i = 0; i < messages.size(); i++) {
+            Object message = messages.get(i);
+            if (message.equals(t)) {
+                remove(i);
+                break;
+            }
+        }
     }
 
     public void updateMessage(M t) {
-
-    }
-
-    public void updateMessages(List<M> messages) {
-
     }
 
     public void addMessages(List<M> newMessages, NoChatAddMessagesMode messagesMode) {

@@ -20,9 +20,10 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="@dimen/no_chat_small_margin"
             android:animateLayoutChanges="true"
+            android:src="@drawable/no_chat_attach"
             android:background="?attr/selectableItemBackground"
             android:padding="@dimen/no_chat_small_margin"
-            app:srcCompat="@drawable/ic_chat_attach" />
+            />
 
         <ImageView
             android:src="@drawable/ic_send"
