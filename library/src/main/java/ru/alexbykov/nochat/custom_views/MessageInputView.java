@@ -80,7 +80,7 @@ public class MessageInputView extends FrameLayout {
         ivAttachments.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                onAttachmentsClick.run();
             }
         });
 
@@ -145,6 +145,8 @@ public class MessageInputView extends FrameLayout {
     public void unsubscribe() {
         sendClickListener = null;
         onAttachmentsClick = null;
+        ivAttachments.setOnClickListener(null);
+        ivSend.setOnClickListener(null);
         etInput.addTextChangedListener(null);
     }
 
