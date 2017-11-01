@@ -128,10 +128,11 @@ public abstract class BaseNoChatAdapter<M> extends RecyclerView.Adapter<NoChatBa
     public int getItemCount() {
         return messages == null || messages.isEmpty() ? 0 : messages.size();
     }
-
-
+    
     public void newMessage(M t) {
-        addToBottomWithScroll(t, getItemCount());
+        if (!messages.contains(t)){
+            addToBottomWithScroll(t, getItemCount());
+        }
     }
 
     public void removeMessage(M t) {
