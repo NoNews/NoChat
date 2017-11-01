@@ -5,6 +5,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -31,6 +32,8 @@ public class NoChatBaseViewHolder extends RecyclerView.ViewHolder {
     public ImageView ivImage;
     public RelativeLayout ltMessageRoot;
     public LinearLayout ltMessage;
+    public RelativeLayout ltImageContent;
+    public ProgressBar progressBarImage;
 
 
     public NoChatBaseViewHolder(View itemView) {
@@ -48,6 +51,8 @@ public class NoChatBaseViewHolder extends RecyclerView.ViewHolder {
         ivImage = bindView(R.id.iv_image);
         ltMessageRoot = bindView(R.id.lt_message_root);
         ltMessage = bindView(R.id.lt_message);
+        ltImageContent = bindView(R.id.lt_image_content);
+        progressBarImage = bindView(R.id.progress_bar_image);
     }
 
 

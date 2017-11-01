@@ -53,7 +53,6 @@
     <style name="NoChatImageStyle">
         <item name="android:scaleType">centerCrop</item>
         <item name="android:layout_marginTop">@dimen/no_chat_small_margin</item>
-        <item name="android:visibility">gone</item>
     </style>
 
 

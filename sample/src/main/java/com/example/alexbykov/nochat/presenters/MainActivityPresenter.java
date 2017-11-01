@@ -8,6 +8,7 @@ import com.example.alexbykov.nochat.views.MainActivityView;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+
 import ru.alexbykov.nochat.custom_views.MessageInputView;
 
 /**
@@ -15,8 +16,8 @@ import ru.alexbykov.nochat.custom_views.MessageInputView;
  *         Date: 20.10.17.
  *         <p>
  *         You can contact me at me@alexbykov.ru
- *
- *
+ *         <p>
+ *         <p>
  *         Test sample for develop mode, it will be remove
  */
 
@@ -46,32 +47,20 @@ public class MainActivityPresenter implements MessageInputView.OnSendClickListen
     public List<Object> getMessages() {
 
         List<Object> messages = new ArrayList<>();
-        for (int i = 10; i < 20; i++) {
+        for (int i = 0; i < 100; i++) {
             MessageDTO local = new MessageDTO();
             local.setFrom("0");
             local.setMessageId(String.valueOf(i));
             local.setAuthorPhoto("https://s-cdn.sportbox.ru/images/styles/690_388/fp_fotos/3b/98/58e5db8e4cb2bffc0e4628908aa52368588ba45fa639b779902561.jpg");
             local.setFrom("Сергей Павлоc");
             local.setText("kdjfjdfjdfjldlfjkljkdflkjdfljkdfjklfdjlkldfjkkdjfjdfjdfjldlfjkljkdflkjdfljkdfjklfdjlkldfjkkdjfjdfjdfjldlfjkljkdflkjdfljkdfjklfdjlkldfjkkdjfjdfjdfjldlfjkljkdflkjdfljkdfjklfdjlkldfjkkdjfjdfjdfjldlfjkljkdflkjdfljkdfjklfdjlkldfjkkdjfjdfjdfjldlfjkljkdflkjdfljkdfjklfdjlkldfjkkdjfjdfjdfjldlfjkljkdflkjdfljkdfjklfdjlkldfjkkdjfjdfjdfjldlfjkljkdflkjdfljkdfjklfdjlkldfjkkdjfjdfjdfjldlfjkljkdflkjdfljkdfjklfdjlkldfjkkdjfjdfjdfjldlfjkljkdflkjdfljkdfjklfdjlkldfjk");
-//            if (i == 40) {
-//                local.setImage("https://stage.otvetapp.ru/media/uploads/ea/25/51/3cac184604a2fcc20548d58e60/Screen%20Shot%202017-10-26%20at%2015.31.59.jpeg");
-//            }
-//            if (i == 41) {
-//                local.setImage("http://kaifolog.ru/uploads/posts/2014-03/thumbs/1395283832_004.jpg");
-//            }
-//            if (i == 42) {
-//                local.setImage("https://vk.com/photo-24098496_456254906");
-//            }
-//            if (i == 43) {
-//                local.setImage("https://vk.com/photo-24098496_456267214");
-//            }
-//            local.setText("Сообщениеs www.yandex.ru vhhvchjkcvxjhkvchjkxhjkxvch www.rambler.ru jkxvchjkxcvhjkcxvjhkcvxkhjcvxkhjcvxkhjvxckjhxcvhjkkchjvxkchjvxkhcjvxkchvx " + i);
+            local.setImage("https://pp.userapi.com/c840423/v840423120/1d5ff/s3NvYioLF3Q.jpg");
             messages.add(local);
         }
         return messages;
     }
 
-    public List<Object>getOldMessages(){
+    public List<Object> getOldMessages() {
         List<Object> messages = new ArrayList<>();
         for (int i = 1; i < 10; i++) {
             MessageDTO local = new MessageDTO();

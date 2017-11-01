@@ -5,6 +5,7 @@ import android.view.View;
 
 import com.example.alexbykov.nochat.R;
 import com.example.alexbykov.nochat.data.MessageDTO;
+import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
 
 import ru.alexbykov.nochat.models.NoChatProgress;
@@ -28,7 +29,6 @@ public class ChatAdapter extends BaseNoChatAdapter<Object> {
 
     private Context context;
     private String myJid = "1";
-
 
 
     public ChatAdapter() {
@@ -58,7 +58,6 @@ public class ChatAdapter extends BaseNoChatAdapter<Object> {
 
         final int itemViewType = getItemViewType(position);
 
-
         switch (itemViewType) {
 
             case VIEW_TYPE_DATE:
@@ -86,22 +85,32 @@ public class ChatAdapter extends BaseNoChatAdapter<Object> {
 //        inboxHolder.tvMessage.setText(message.getText());
         inboxHolder.tvName.setText(message.getFrom());
 
-        if (message.getImage()!=null){
+        if (message.getImage() != null) {
+            inboxHolder.ltImageContent.setVisibility(View.VISIBLE);
+            inboxHolder.tvMessage.setVisibility(View.GONE);
+            inboxHolder.progressBarImage.setVisibility(View.VISIBLE);
+
             Picasso.with(inboxHolder.ivImage.getContext())
                     .load(message.getImage())
-                    .into(inboxHolder.ivImage);
-            inboxHolder.tvMessage.setVisibility(View.GONE);
-            inboxHolder.ivImage.setVisibility(View.VISIBLE);
+                    .into(inboxHolder.ivImage, new Callback() {
+                        @Override
+                        public void onSuccess() {
+                            inboxHolder.progressBarImage.setVisibility(View.GONE);
+                        }
+
+                        @Override
+                        public void onError() {
+                            inboxHolder.progressBarImage.setVisibility(View.GONE);
+                        }
+                    });
+
         }
+//        inboxHolder.ltFileContent.setVisibility(View.VISIBLE);
+//        inboxHolder.tvFileName.setText("Файл");
+//        inboxHolder.tvFileSize.setText("3333");
+//        inboxHolder.ivFileImage.setBackgroundResource(R.drawable.ic_chat_attach);
 
 
-
-        inboxHolder.ltFileContent.setVisibility(View.VISIBLE);
-        inboxHolder.tvFileName.setText("Файл");
-        inboxHolder.tvFileSize.setText("3333");
-        inboxHolder.ivFileImage.setBackgroundResource(R.drawable.ic_chat_attach);
-
-        Picasso.with(inboxHolder.ivImage.getContext()).load(message.getAuthorPhoto()).into(inboxHolder.civProfileImage);
     }
 
 
