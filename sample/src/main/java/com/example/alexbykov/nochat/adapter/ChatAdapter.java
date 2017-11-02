@@ -82,7 +82,7 @@ public class ChatAdapter extends BaseNoChatAdapter<Object> {
 
     private void setupInbox(MessageDTO message, NoChatBaseViewHolder holder) {
         NoChatInboxHolder inboxHolder = (NoChatInboxHolder) holder;
-//        inboxHolder.tvMessage.setText(message.getText());
+        inboxHolder.tvMessage.setText(message.getText());
         inboxHolder.tvName.setText(message.getFrom());
 
         if (message.getImage() != null) {

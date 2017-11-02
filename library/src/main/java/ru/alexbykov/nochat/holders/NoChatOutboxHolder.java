@@ -19,8 +19,11 @@ import ru.alexbykov.nochat.R;
 public class NoChatOutboxHolder extends NoChatBaseViewHolder {
 
 
+    public ImageView ivTimer;
+
     public NoChatOutboxHolder(View itemView) {
         super(itemView);
         bindBubbleViews();
+        ivTimer = bindView(R.id.iv_timer);
     }
 }

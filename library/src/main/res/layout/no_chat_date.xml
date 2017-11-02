@@ -2,12 +2,13 @@
 
 
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/NoChatWithoutBackground"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
     <TextView
-        style="@style/NoChatHeaderDateStyle"
         android:id="@+id/tv_header_date"
+        style="@style/NoChatHeaderDateStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal" />

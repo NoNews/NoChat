@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
-    android:visibility="visible"
+    android:visibility="gone"
     android:paddingStart="@dimen/no_chat_small_margin"
     android:paddingEnd="@dimen/no_chat_small_margin"
     android:background="?attr/selectableItemBackground"
@@ -21,7 +21,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/no_chat_small_margin"
-        android:background="@null"
+        style="@style/NoChatWithoutBackground"
         android:orientation="vertical">
 
         <TextView

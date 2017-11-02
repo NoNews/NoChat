@@ -30,7 +30,7 @@ public class NoChatScrollUtils {
     public static boolean isOnTop(RecyclerView recyclerView, int loadingTriggerThreshold) {
         final int firstVisiblePosition = getFirstVisibleItemPositionByLayoutManager(recyclerView.getLayoutManager());
         final int topPosition = recyclerView.getLayoutManager().findViewByPosition(firstVisiblePosition).getTop();
-        return (topPosition== 0 && firstVisiblePosition == 0);
+        return (topPosition == 0 && firstVisiblePosition == 0);
     }
 
     private static int getFirstVisibleItemPositionByLayoutManager(RecyclerView.LayoutManager layoutManager) {
@@ -60,5 +60,9 @@ public class NoChatScrollUtils {
 
     public static void fullScrollToBottom(RecyclerView.Adapter adapter, RecyclerView recyclerView) {
         recyclerView.getLayoutManager().smoothScrollToPosition(recyclerView, null, adapter.getItemCount() - 1);
+    }
+
+    public static void fullScrollToTop(RecyclerView recyclerView) {
+        recyclerView.getLayoutManager().smoothScrollToPosition(recyclerView, null, 0);
     }
 }

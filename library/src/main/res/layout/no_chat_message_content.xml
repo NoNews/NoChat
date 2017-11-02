@@ -17,8 +17,8 @@
         <ImageView
             android:id="@+id/iv_image"
             style="@style/NoChatImageStyle"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_width="@dimen/no_chat_image_width"
+            android:layout_height="@dimen/no_chat_image_height" />
 
 
         <ProgressBar

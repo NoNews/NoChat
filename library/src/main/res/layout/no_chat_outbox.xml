@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/lt_message_root"
+    style="@style/NoChatWithoutBackground"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="horizontal"
@@ -19,24 +20,47 @@
         android:background="@drawable/chat_outbox_normal"
         android:orientation="horizontal">
 
-        <RelativeLayout
+        <FrameLayout
+            style="@style/NoChatWithoutBackground"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/no_chat_horizontal_margin">
 
-            <include
-                android:id="@+id/lt_content_group"
-                layout="@layout/no_chat_message_content" />
-
-
-            <TextView
-                android:id="@+id/tv_date"
-                style="@style/NoChatDateStyle"
+            <LinearLayout
+                style="@style/NoChatWithoutBackground"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/lt_content_group" />
+                android:orientation="vertical">
 
-        </RelativeLayout>
+                <include
+                    android:id="@+id/lt_content_group"
+                    layout="@layout/no_chat_message_content" />
+
+
+                <LinearLayout
+                    style="@style/NoChatWithoutBackground"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end|bottom"
+                    android:layout_marginEnd="@dimen/no_chat_middle_margin">
+
+                    <TextView
+                        android:id="@+id/tv_date"
+                        style="@style/NoChatDateStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="10:22" />
+
+                    <ImageView
+                        android:id="@+id/iv_timer"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/no_chat_timer" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </FrameLayout>
 
     </LinearLayout>
 
