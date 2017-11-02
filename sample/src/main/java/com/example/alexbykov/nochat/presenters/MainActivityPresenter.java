@@ -54,7 +54,7 @@ public class MainActivityPresenter implements MessageInputView.OnSendClickListen
             local.setMessageId(String.valueOf(i));
             local.setAuthorPhoto("https://s-cdn.sportbox.ru/images/styles/690_388/fp_fotos/3b/98/58e5db8e4cb2bffc0e4628908aa52368588ba45fa639b779902561.jpg");
             local.setFrom("Сергей Павлоc");
-//            local.setImage("https://pp.userapi.com/c840423/v840423120/1d5ff/s3NvYioLF3Q.jpg");
+            local.setImage("https://pp.userapi.com/c840423/v840423120/1d5ff/s3NvYioLF3Q.jpg");
             messages.add(local);
         }
         return messages;

@@ -20,10 +20,12 @@ public class NoChatOutboxHolder extends NoChatBaseViewHolder {
 
 
     public ImageView ivTimer;
+    public ImageView ivDelivered;
 
     public NoChatOutboxHolder(View itemView) {
         super(itemView);
         bindBubbleViews();
         ivTimer = bindView(R.id.iv_timer);
+        ivDelivered = bindView(R.id.iv_delivered);
     }
 }
