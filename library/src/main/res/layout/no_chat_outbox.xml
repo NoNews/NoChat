@@ -48,8 +48,7 @@
                         android:id="@+id/tv_date"
                         style="@style/NoChatDateStyle"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="10:22" />
+                        android:layout_height="wrap_content" />
 
                     <ImageView
                         android:visibility="gone"
@@ -59,6 +58,7 @@
                         android:src="@drawable/no_chat_timer" />
 
                     <ImageView
+                        android:visibility="gone"
                         android:id="@+id/iv_delivered"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
