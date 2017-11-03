@@ -7,9 +7,9 @@
     android:layout_below="@id/tv_name">
 
 
-    <RelativeLayout
+    <FrameLayout
         android:id="@+id/lt_image_content"
-        android:layout_width="@dimen/no_chat_image_width"
+        android:layout_width="wrap_content"
         android:layout_height="@dimen/no_chat_image_height"
         android:visibility="gone">
 
@@ -17,17 +17,16 @@
         <ImageView
             android:id="@+id/iv_image"
             style="@style/NoChatImageStyle"
-            android:layout_width="@dimen/no_chat_image_width"
-            android:layout_height="@dimen/no_chat_image_height" />
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
 
 
         <ProgressBar
+            android:layout_gravity="center"
             android:id="@+id/progress_bar_image"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true" />
-
-    </RelativeLayout>
+            android:layout_height="wrap_content"/>
+    </FrameLayout>
 
 
     <TextView

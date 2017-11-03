@@ -3,6 +3,7 @@ package ru.alexbykov.nochat.holders;
 import android.support.annotation.IdRes;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
@@ -32,7 +33,7 @@ public class NoChatBaseViewHolder extends RecyclerView.ViewHolder {
     public ImageView ivImage;
     public RelativeLayout ltMessageRoot;
     public LinearLayout ltMessage;
-    public RelativeLayout ltImageContent;
+    public FrameLayout ltImageContent;
     public ProgressBar progressBarImage;
 
 

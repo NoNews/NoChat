@@ -50,6 +50,7 @@
                     layout="@layout/no_chat_message_content" />
 
                 <TextView
+
                     android:id="@+id/tv_date"
                     style="@style/NoChatDateStyle"
                     android:layout_width="wrap_content"
