@@ -54,7 +54,12 @@ public class MainActivityPresenter implements MessageInputView.OnSendClickListen
             local.setMessageId(String.valueOf(i));
             local.setAuthorPhoto("https://s-cdn.sportbox.ru/images/styles/690_388/fp_fotos/3b/98/58e5db8e4cb2bffc0e4628908aa52368588ba45fa639b779902561.jpg");
             local.setFrom("Сергей Павлоc");
-            local.setImage("https://stage.otvetapp.ru/media/uploads/52/28/8f/a76e214129aeb73048fbe60ee6/Screenshot_2017-11-03-16-28-38.jpeg");
+            local.setImage("https://stage.otvetapp.ru/media/previews/51/fb/c5/d37ce3472ebe428bef4ca48334/Снимок%20экрана%202017-10-12%20в%2014.36.19.jpeg");
+
+            if (i==1){
+                local.setImage("https://stage.otvetapp.ru/media/uploads/52/28/8f/a76e214129aeb73048fbe60ee6/Screenshot_2017-11-03-16-28-38.jpeg");
+            }
+
             messages.add(local);
         }
         return messages;
@@ -69,6 +74,7 @@ public class MainActivityPresenter implements MessageInputView.OnSendClickListen
             local.setMessageId(String.valueOf(i));
             local.setFrom("Сергей Павлос");
             local.setText("df;fs;fkl;sdfkl;sdfk;ldsk;ldsfk;ldfskl;dfsk;lsfdfljlkdjlkdfgjlkfdjlkfjdklgjlfkdgljkdfljkfdljkfgdljkfdljkgdlkjdflkgjfdlkgjdflkjgldfjglkfdjgklfdjgkldfjglkfjdlkgjdflkgjdglkfjldjlfdlkfdlsfdfljlkdjlkdfgjlkfdjlkfjdklgjlfkdgljkdfljkfdljkfgdljkfdljkgdlkjdflkgjfdlkgjdflkjgldfjglkfdjgklfdjgkldfjglkfjdlkgjdflkgjdglkfjldjlfdlkfdlsfdfljlkdjlkdfgjlkfdjlkfjdklgjlfkdgljkdfljkfdljkfgdljkfdljkgdlkjdflkgjfdlkgjdflkjgldfjglkfdjgklfdjgkldfjglkfjdlkgjdflkgjdglkfjldjlfdlkfdlsfdfljlkdjlkdfgjlkfdjlkfjdklgjlfkdgljkdfljkfdljkfgdljkfdljkgdlkjdflkgjfdlkgjdflkjgldfjglkfdjgklfdjgkldfjglkfjdlkgjdflkgjdglkfjldjlfdlkfdlsfdfljlkdjlkdfgjlkfdjlkfjdklgjlfkdgljkdfljkfdljkfgdljkfdljkgdlkjdflkgjfdlkgjdflkjgldfjglkfdjgklfdjgkldfjglkfjdlkgjdflkgjdglkfjldjlfdlkfdlsfdfljlkdjlkdfgjlkfdjlkfjdklgjlfkdgljkdfljkfdljkfgdljkfdljkgdlkjdflkgjfdlkgjdflkjgldfjglkfdjgklfdjgkldfjglkfjdlkgjdflkgjdglkfjldjlfdlkfdlsfdfljlkdjlkdfgjlkfdjlkfjdklgjlfkdgljkdfljkfdljkfgdljkfdljkgdlkjdflkgjfdlkgjdflkjgldfjglkfdjgklfdjgkldfjglkfjdlkgjdflkgjdglkfjldjlfdlkfdlsfdfljlkdjlkdfgjlkfdjlkfjdklgjlfkdgljkdfljkfdljkfgdljkfdljkgdlkjdflkgjfdlkgjdflkjgldfjglkfdjgklfdjgkldfjglkfjdlkgjdflkgjdglkfjldjlfdlkfdlsfdfljlkdjlkdfgjlkfdjlkfjdklgjlfkdgljkdfljkfdljkfgdljkfdljkgdlkjdflkgjfdlkgjdflkjgldfjglkfdjgklfdjgkldfjglkfjdlkgjdflkgjdglkfjldjlfdlkfdlsfdfljlkdjlkdfgjlkfdjlkfjdklgjlfkdgljkdfljkfdljkfgdljkfdljkgdlkjdflkgjfdlkgjdflkjgldfjglkfdjgklfdjgkldfjglkfjdlkgjdflkgjdglkfjldjlfdlkfd;kls;dklf;skd");
+
             messages.add(local);
         }
         Collections.reverse(messages);

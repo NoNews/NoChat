@@ -85,6 +85,12 @@ public class ChatAdapter extends BaseNoChatAdapter<Object> {
         inboxHolder.tvMessage.setText(message.getText());
         inboxHolder.tvName.setText(message.getFrom());
 
+        inboxHolder.ltImageContent.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
         if (message.getImage() != null) {
             inboxHolder.ltImageContent.setVisibility(View.VISIBLE);
             inboxHolder.tvMessage.setVisibility(View.GONE);
