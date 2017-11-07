@@ -4,6 +4,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.util.Log;
+import android.view.View;
 
 /**
  * @author Alex Bykov
@@ -29,8 +30,13 @@ public class NoChatScrollUtils {
 
     public static boolean isOnTop(RecyclerView recyclerView, int loadingTriggerThreshold) {
         final int firstVisiblePosition = getFirstVisibleItemPositionByLayoutManager(recyclerView.getLayoutManager());
-        final int topPosition = recyclerView.getLayoutManager().findViewByPosition(firstVisiblePosition).getTop();
-        return (topPosition == 0 && firstVisiblePosition == 0);
+        final RecyclerView.LayoutManager layoutManager = recyclerView.getLayoutManager();
+        final View viewByPosition = layoutManager.findViewByPosition(firstVisiblePosition);
+        if (viewByPosition != null) {
+            final int topPosition = viewByPosition.getTop();
+            return (topPosition == 0 && firstVisiblePosition == 0);
+        }
+        return false;
     }
 
     private static int getFirstVisibleItemPositionByLayoutManager(RecyclerView.LayoutManager layoutManager) {
