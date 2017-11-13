@@ -9,20 +9,20 @@
 
     <FrameLayout
         android:id="@+id/lt_content"
-        style="@style/NoChatContentStyle"
+        style="@style/NoChatWithoutBackground"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
 
-        <include layout="@layout/no_chat_image_content" />
 
         <RelativeLayout
+            android:id="@+id/lt_mailed_message_container"
             style="@style/NoChatWithoutBackground"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
 
             <LinearLayout
-                style="@style/NoChatWithoutBackground"
                 android:id="@+id/lt_mailed_message_author_name_container"
+                style="@style/NoChatWithoutBackground"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
 
@@ -36,20 +36,30 @@
                     android:id="@+id/tv_mailed_message_date"
                     style="@style/NoChatDateStyleSmall"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical" />
+                    android:layout_height="wrap_content" />
             </LinearLayout>
 
             <TextView
                 android:id="@+id/tv_mailed_message"
-                style="@style/NoChatOutboxMessageText"
+                style="@style/NoChatOutboxMessageTextSmall"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/lt_mailed_message_author_name_container" />
 
+
+            <FrameLayout
+                style="@style/NoChatWithoutBackground"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/lt_mailed_message_author_name_container">
+
+                <include layout="@layout/no_chat_image_content" />
+
+                <include layout="@layout/no_chat_file_content" />
+
+            </FrameLayout>
+
         </RelativeLayout>
 
-
-        <include layout="@layout/no_chat_file_content" />
     </FrameLayout>
 </LinearLayout>

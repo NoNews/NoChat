@@ -50,7 +50,6 @@ public  class NoChatBaseViewHolder extends RecyclerView.ViewHolder {
         bindMessage();
         tvDate = bindView(R.id.tv_date);
         bindImage();
-        progressBarImage = bindView(R.id.progress_bar_image);
     }
 
     protected final void bindMailedMessageHolder() {
@@ -68,6 +67,7 @@ public  class NoChatBaseViewHolder extends RecyclerView.ViewHolder {
         ltMessageRoot = bindView(R.id.lt_message_root);
         ltMessage = bindView(R.id.lt_message);
         ltImageContent = bindView(R.id.lt_image_content);
+        progressBarImage = bindView(R.id.progress_bar_image);
     }
 
     private void bindFile() {

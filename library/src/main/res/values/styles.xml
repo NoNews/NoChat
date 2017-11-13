@@ -29,8 +29,9 @@
     </style>
 
 
-    <style name="NoChatOutboxMessageTextSmall">
+    <style name="NoChatOutboxMessageTextSmall" parent="NoChatOutboxMessageText">
         <item name="android:textSize">@dimen/no_chat_small_text_size</item>
+        <item name="android:layout_marginTop">0dp</item>
 
     </style>
 
@@ -44,6 +45,7 @@
     <style name="NoChatDateStyleSmall" parent="NoChatDateStyle">
         <item name="android:textSize">@dimen/no_chat_very_small_text_size</item>
         <item name="android:layout_marginBottom">0dp</item>
+        <item name="android:layout_marginEnd">0dp</item>
     </style>
 
 

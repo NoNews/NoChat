@@ -50,7 +50,7 @@ public class MainActivityPresenter implements MessageInputView.OnSendClickListen
         for (int i = 0; i < 10; i++) {
             MessageDTO local = new MessageDTO();
             local.setFrom("0");
-            local.setText("Привет))) ВОт наш разговор с ним");
+            local.setText("Привет)");
             local.setLinkedMessages(getLinkedMessages());
             local.setMessageId(String.valueOf(i));
             local.setAuthorPhoto("https://s-cdn.sportbox.ru/images/styles/690_388/fp_fotos/3b/98/58e5db8e4cb2bffc0e4628908aa52368588ba45fa639b779902561.jpg");
@@ -91,7 +91,8 @@ public class MainActivityPresenter implements MessageInputView.OnSendClickListen
             local.setAuthorPhoto("https://s-cdn.sportbox.ru/images/styles/690_388/fp_fotos/3b/98/58e5db8e4cb2bffc0e4628908aa52368588ba45fa639b779902561.jpg");
             local.setMessageId(String.valueOf(i));
             local.setFrom("Сергей Павлос");
-            local.setText("dfkldlfklkdfkldf");
+            local.setImage("https://s-cdn.sportbox.ru/images/styles/690_388/fp_fotos/3b/98/58e5db8e4cb2bffc0e4628908aa52368588ba45fa639b779902561.jpg");
+            local.setText("dfkldlfkdfkldlfklkdfkldfdfkldlfklkdfkldfdfkldlfklkdfkldfdfkldlfklkdfkldfdfkldlfklkdfkldfdfkldlfklkdfkldflkdfkldfdfkldlfkdfkldlfklkdfkldfdfkldlfklkdfkldfdfkldlfklkdfkldfdfkldlfklkdfkldfdfkldlfklkdfkldfdfkldlfklkdfkldflkdfkldfdfkldlfkdfkldlfklkdfkldfdfkldlfklkdfkldfdfkldlfklkdfkldfdfkldlfklkdfkldfdfkldlfklkdfkldfdfkldlfklkdfkldflkdfkldfdfkldlfkdfkldlfklkdfkldfdfkldlfklkdfkldfdfkldlfklkdfkldfdfkldlfklkdfkldfdfkldlfklkdfkldfdfkldlfklkdfkldflkdfkldf");
             messages.add(local);
         }
 

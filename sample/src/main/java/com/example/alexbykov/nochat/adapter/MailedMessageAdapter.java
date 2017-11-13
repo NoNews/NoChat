@@ -1,6 +1,11 @@
 package com.example.alexbykov.nochat.adapter;
 
+import android.view.View;
+
+import com.example.alexbykov.nochat.R;
 import com.example.alexbykov.nochat.data.MessageDTO;
+import com.squareup.picasso.Callback;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -25,11 +30,39 @@ public class MailedMessageAdapter extends BaseNoChatMailedMessageAdapter<Message
 
     @Override
     public void onBindViewHolder(NoChatBaseViewHolder holder, int position) {
+
         NoChatMailedMessageHolder mailedMessageHolder = (NoChatMailedMessageHolder) holder;
         final MessageDTO message = messages.get(position);
-        mailedMessageHolder.tvMailedMessage.setText(message.getText());
-        mailedMessageHolder.tvMailedMessageName.setText(message.getFrom());
-        mailedMessageHolder.tvMailedMessageDate.setText("Вторник, 22:40");
+
+//        if (message.getImage() != null) {
+//            mailedMessageHolder.ltImageContent.setVisibility(View.VISIBLE);
+//            mailedMessageHolder.tvMailedMessage.setVisibility(View.GONE);
+//            mailedMessageHolder.progressBarImage.setVisibility(View.VISIBLE);
+//
+//            Picasso.with(mailedMessageHolder.ivImage.getContext())
+//                    .load(message.getImage())
+//                    .into(mailedMessageHolder.ivImage, new Callback() {
+//                        @Override
+//                        public void onSuccess() {
+//                            mailedMessageHolder.progressBarImage.setVisibility(View.GONE);
+//                        }
+//
+//                        @Override
+//                        public void onError() {
+//                            mailedMessageHolder.progressBarImage.setVisibility(View.GONE);
+//                        }
+//                    });
+//        }
+        mailedMessageHolder.ltFileContent.setVisibility(View.VISIBLE);
+        mailedMessageHolder.tvFileName.setText("Файл");
+        mailedMessageHolder.tvFileSize.setText("3333");
+        mailedMessageHolder.ivFileImage.setBackgroundResource(R.drawable.ic_chat_attach);
+
+
+//        mailedMessageHolder.tvMailedMessage.setText(message.getText());
+//        mailedMessageHolder.tvMailedMessageName.setText(message.getFrom());
+//        mailedMessageHolder.tvMailedMessageDate.setText("Вторник, 22:40");
         super.onBindViewHolder(holder, position);
     }
 }
+
