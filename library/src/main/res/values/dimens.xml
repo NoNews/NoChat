@@ -11,6 +11,7 @@
     <dimen name="no_chat_horizontal_margin">16dp</dimen>
     <dimen name="no_chat_input_text_size">17sp</dimen>
     <dimen name="no_chat_small_text_size">11sp</dimen>
+    <dimen name="no_chat_very_small_text_size">8sp</dimen>
     <dimen name="no_chat_image_width">150dp</dimen>
     <dimen name="no_chat_image_height">250dp</dimen>
     <dimen name="no_chat_small_photo">40dp</dimen>

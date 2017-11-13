@@ -29,12 +29,23 @@
     </style>
 
 
+    <style name="NoChatOutboxMessageTextSmall">
+        <item name="android:textSize">@dimen/no_chat_small_text_size</item>
+
+    </style>
+
     <style name="NoChatDateStyle">
         <item name="android:layout_marginEnd">@dimen/no_chat_middle_margin</item>
         <item name="android:textColor">@color/new_gray3</item>
         <item name="android:textSize">@dimen/no_chat_small_text_size</item>
         <item name="android:layout_marginBottom">@dimen/no_chat_small_margin</item>
     </style>
+
+    <style name="NoChatDateStyleSmall" parent="NoChatDateStyle">
+        <item name="android:textSize">@dimen/no_chat_very_small_text_size</item>
+        <item name="android:layout_marginBottom">0dp</item>
+    </style>
+
 
     <style name="NoChatWithoutBackground">
         <item name="android:background">@null</item>
@@ -46,6 +57,12 @@
         <item name="android:layout_marginEnd">@dimen/no_chat_horizontal_margin</item>
         <item name="android:ellipsize">end</item>
         <item name="android:maxLines">1</item>
+    </style>
+
+    <style name="NoChatNameStyleSmall" parent="NoChatNameStyle">
+        <item name="android:textColor">@color/no_chat_blue</item>
+        <item name="android:textSize">@dimen/no_chat_small_text_size</item>
+        <item name="android:layout_marginEnd">@dimen/no_chat_middle_margin</item>
     </style>
 
     <style name="NoChatAvatarStyle">

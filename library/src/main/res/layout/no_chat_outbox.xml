@@ -48,21 +48,22 @@
                         android:id="@+id/tv_date"
                         style="@style/NoChatDateStyle"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
+                        android:layout_height="wrap_content"
+                        android:text="10:44" />
 
                     <ImageView
-                        android:visibility="gone"
                         android:id="@+id/iv_timer"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:src="@drawable/no_chat_timer" />
+                        android:src="@drawable/no_chat_timer"
+                        android:visibility="gone" />
 
                     <ImageView
-                        android:visibility="gone"
                         android:id="@+id/iv_delivered"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:src="@drawable/no_chat_delivered" />
+                        android:src="@drawable/no_chat_delivered"
+                        android:visibility="gone" />
                 </LinearLayout>
 
             </LinearLayout>

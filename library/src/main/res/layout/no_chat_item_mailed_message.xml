@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/NoChatContentStyle"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_below="@id/tv_name"
+    android:orientation="horizontal">
+
+
+    <FrameLayout
+        android:id="@+id/lt_content"
+        style="@style/NoChatContentStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <include layout="@layout/no_chat_image_content" />
+
+        <RelativeLayout
+            style="@style/NoChatWithoutBackground"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                style="@style/NoChatWithoutBackground"
+                android:id="@+id/lt_mailed_message_author_name_container"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/tv_mailed_message_name"
+                    style="@style/NoChatNameStyleSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:id="@+id/tv_mailed_message_date"
+                    style="@style/NoChatDateStyleSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tv_mailed_message"
+                style="@style/NoChatOutboxMessageText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/lt_mailed_message_author_name_container" />
+
+        </RelativeLayout>
+
+
+        <include layout="@layout/no_chat_file_content" />
+    </FrameLayout>
+</LinearLayout>

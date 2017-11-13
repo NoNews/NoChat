@@ -50,13 +50,14 @@ public class MainActivityPresenter implements MessageInputView.OnSendClickListen
         for (int i = 0; i < 10; i++) {
             MessageDTO local = new MessageDTO();
             local.setFrom("0");
-            local.setText("Привет");
+            local.setText("Привет))) ВОт наш разговор с ним");
+            local.setLinkedMessages(getLinkedMessages());
             local.setMessageId(String.valueOf(i));
             local.setAuthorPhoto("https://s-cdn.sportbox.ru/images/styles/690_388/fp_fotos/3b/98/58e5db8e4cb2bffc0e4628908aa52368588ba45fa639b779902561.jpg");
-            local.setFrom("Сергей Павлоc");
+            local.setFrom("Самсон Самсонов");
             local.setImage("https://stage.otvetapp.ru/media/previews/51/fb/c5/d37ce3472ebe428bef4ca48334/Снимок%20экрана%202017-10-12%20в%2014.36.19.jpeg");
 
-            if (i==1){
+            if (i == 1) {
                 local.setImage("https://stage.otvetapp.ru/media/uploads/52/28/8f/a76e214129aeb73048fbe60ee6/Screenshot_2017-11-03-16-28-38.jpeg");
             }
 
@@ -78,6 +79,22 @@ public class MainActivityPresenter implements MessageInputView.OnSendClickListen
             messages.add(local);
         }
         Collections.reverse(messages);
+        return messages;
+    }
+
+
+    public List<MessageDTO> getLinkedMessages() {
+        List<MessageDTO> messages = new ArrayList<>();
+        for (int i = 0; i < 10; i++) {
+            MessageDTO local = new MessageDTO();
+            local.setFrom("Паша Иванов");
+            local.setAuthorPhoto("https://s-cdn.sportbox.ru/images/styles/690_388/fp_fotos/3b/98/58e5db8e4cb2bffc0e4628908aa52368588ba45fa639b779902561.jpg");
+            local.setMessageId(String.valueOf(i));
+            local.setFrom("Сергей Павлос");
+            local.setText("dfkldlfklkdfkldf");
+            messages.add(local);
+        }
+
         return messages;
     }
 

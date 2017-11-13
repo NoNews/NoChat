@@ -135,6 +135,13 @@ public abstract class BaseNoChatAdapter<M> extends RecyclerView.Adapter<NoChatBa
         }
     }
 
+
+    public void swapToEnd(int position) {
+        final M message = messages.get(position);
+        remove(position);
+        add(message, getLastPosition());
+    }
+
     public void removeMessage(M t) {
 
         for (int i = 0; i < messages.size(); i++) {
@@ -152,7 +159,7 @@ public abstract class BaseNoChatAdapter<M> extends RecyclerView.Adapter<NoChatBa
     public void addMessages(List<M> newMessages, NoChatAddMessagesMode messagesMode) {
         switch (messagesMode) {
             case TO_END:
-                addAll(newMessages, messages.size() - 1);
+                addAll(newMessages, getLastPosition());
                 break;
             case TO_START:
                 addAll(newMessages, 0);
@@ -195,7 +202,9 @@ public abstract class BaseNoChatAdapter<M> extends RecyclerView.Adapter<NoChatBa
             adapterState = NoChatAdapterState.ON_BOTTOM;
         } else if (NoChatScrollUtils.isOnTop(recyclerView, loadingTriggerThreshold)) {
             adapterState = NoChatAdapterState.ON_TOP;
-        } else adapterState = NoChatAdapterState.SCROLLING_OR_MIDDLE;
+        } else {
+            adapterState = NoChatAdapterState.SCROLLING_OR_MIDDLE;
+        }
     }
 
     @SuppressWarnings("unchecked")
@@ -204,9 +213,13 @@ public abstract class BaseNoChatAdapter<M> extends RecyclerView.Adapter<NoChatBa
             add((M) noChatProgress, getItemCount() - 1);
             adapterState = NoChatAdapterState.IN_PROGRESS;
         } else {
-            remove(messages.size() - 1);
+            remove(getLastPosition());
             setAdapterState();
         }
+    }
+
+    private int getLastPosition() {
+        return messages.size() - 1;
     }
 
     @SuppressWarnings("unchecked")
@@ -233,7 +246,6 @@ public abstract class BaseNoChatAdapter<M> extends RecyclerView.Adapter<NoChatBa
         notifyItemRemoved(position);
         messages.remove(position);
     }
-
 
     public void unsubscribe() {
         messages = null;

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:id="@+id/lt_image_content"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/no_chat_small_margin"
+    android:foreground="?attr/selectableItemBackground"
+    android:visibility="gone"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <ImageView
+        android:id="@+id/iv_image"
+        style="@style/NoChatImageStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:maxHeight="@dimen/no_chat_image_height"
+        android:maxWidth="@dimen/no_chat_image_width" />
+
+
+    <ProgressBar
+        android:id="@+id/progress_bar_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center" />
+</FrameLayout>
