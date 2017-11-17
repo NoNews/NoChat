@@ -135,8 +135,7 @@ public abstract class BaseNoChatAdapter<M> extends RecyclerView.Adapter<NoChatBa
         }
     }
 
-
-    public void swapToEnd(int position) {
+    public void moveToEnd(int position) {
         final M message = messages.get(position);
         remove(position);
         add(message, getLastPosition());
@@ -251,7 +250,6 @@ public abstract class BaseNoChatAdapter<M> extends RecyclerView.Adapter<NoChatBa
         messages = null;
         topListener = null;
         bottomListener = null;
-        recyclerView.addOnScrollListener(null);
         recyclerView = null;
     }
 }

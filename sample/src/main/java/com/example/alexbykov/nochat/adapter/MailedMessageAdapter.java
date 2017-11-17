@@ -4,11 +4,7 @@ import android.view.View;
 
 import com.example.alexbykov.nochat.R;
 import com.example.alexbykov.nochat.data.MessageDTO;
-import com.squareup.picasso.Callback;
-import com.squareup.picasso.Picasso;
-
 import java.util.List;
-
 import ru.alexbykov.nochat.BaseNoChatMailedMessageAdapter;
 import ru.alexbykov.nochat.holders.NoChatBaseViewHolder;
 import ru.alexbykov.nochat.holders.NoChatMailedMessageHolder;
