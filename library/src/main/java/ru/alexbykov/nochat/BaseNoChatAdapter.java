@@ -129,9 +129,25 @@ public abstract class BaseNoChatAdapter<M> extends RecyclerView.Adapter<NoChatBa
         return messages == null || messages.isEmpty() ? 0 : messages.size();
     }
 
-    public void newMessage(M t) {
-        if (!messages.contains(t)) {
-            addToBottomWithScroll(t, getItemCount());
+
+    /**
+     * Только то, что отправляем вручную, без подгрузки.
+     *
+     * @param message -- сообщение
+     */
+    public void newMessage(M message) {
+        addToBottomWithScroll(message, getItemCount());
+    }
+
+
+    /**
+     * Только то, что отправляем вручную, без подгрузки.
+     *
+     * @param messages -- сообщения, так же могут содержать заголовок (например, "Сегодня")
+     */
+    public void newMessages(List<M> messages) {
+        for (M message : messages) {
+            newMessage(message);
         }
     }
 
@@ -139,6 +155,7 @@ public abstract class BaseNoChatAdapter<M> extends RecyclerView.Adapter<NoChatBa
         final M message = messages.get(position);
         remove(position);
         add(message, getLastPosition());
+        notifyItemRangeChanged(position, getLastPosition());
     }
 
     public void removeMessage(M t) {
