@@ -44,7 +44,7 @@ dependencies {
 publish {
     groupId = 'ru.alexbykov'
     artifactId = 'nochat'
-    publishVersion = '0.2.6'
+    publishVersion = '0.2.7'
     desc = 'Android Chat library'
     licences = ['Apache-2.0']
     website = 'https://github.com/NoNews/NoChat'

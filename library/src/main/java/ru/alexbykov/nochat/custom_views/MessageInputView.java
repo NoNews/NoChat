@@ -10,10 +10,15 @@ import android.text.TextWatcher;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import ru.alexbykov.nochat.R;
 import ru.alexbykov.nochat.utils.NoChatStringUtils;
@@ -36,7 +41,8 @@ public class MessageInputView extends FrameLayout {
     private RelativeLayout rootView;
     private ImageView ivSend;
     private ImageView ivAttachments;
-    private EditText etInput;
+    private AutoCompleteTextView etInput;
+
 
     public MessageInputView(@NonNull Context context) {
         super(context);
@@ -57,6 +63,10 @@ public class MessageInputView extends FrameLayout {
     public MessageInputView(@NonNull Context context, @Nullable AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
         setupUI();
+    }
+
+    private void setupAutoCompleteFields(List<String> autoCompleteFields) {
+        etInput.setAdapter(new ArrayAdapter(getContext(), android.R.layout.simple_dropdown_item_1line, autoCompleteFields));
     }
 
 

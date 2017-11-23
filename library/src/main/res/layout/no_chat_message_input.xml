@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/NoChatWithoutBackground"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    style="@style/NoChatWithoutBackground"
     android:orientation="vertical">
 
     <LinearLayout
-        style="@style/NoChatWithoutBackground"
         android:id="@+id/ltIcons"
+        style="@style/NoChatWithoutBackground"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
@@ -21,25 +21,25 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="@dimen/no_chat_small_margin"
             android:animateLayoutChanges="true"
-            android:src="@drawable/no_chat_attach"
             android:background="?attr/selectableItemBackground"
             android:padding="@dimen/no_chat_small_margin"
-            />
+            android:src="@drawable/no_chat_attach" />
 
         <ImageView
-            android:src="@drawable/send"
             android:id="@+id/iv_send"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:animateLayoutChanges="true"
             android:background="?attr/selectableItemBackground"
-            android:padding="@dimen/no_chat_small_margin" />
+            android:padding="@dimen/no_chat_small_margin"
+            android:src="@drawable/send" />
 
 
     </LinearLayout>
 
-    <android.support.v7.widget.AppCompatEditText
+    <android.support.v7.widget.AppCompatAutoCompleteTextView
         android:id="@+id/et_input"
+        android:completionThreshold="1"
         style="@style/NoChatMessageTextInput"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
