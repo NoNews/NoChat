@@ -74,7 +74,7 @@ public class MessageInputView extends FrameLayout {
     private void setupUI() {
         bindViews();
         setupListeners();
-        hideInput();
+        ivSend.setVisibility(GONE);
     }
 
     private void setupListeners() {
