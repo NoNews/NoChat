@@ -39,9 +39,9 @@
 
     <android.support.v7.widget.AppCompatAutoCompleteTextView
         android:id="@+id/et_input"
-        android:completionThreshold="1"
         style="@style/NoChatMessageTextInput"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_toStartOf="@id/ltIcons" />
+        android:layout_toStartOf="@id/ltIcons"
+        android:completionThreshold="1" />
 </RelativeLayout>

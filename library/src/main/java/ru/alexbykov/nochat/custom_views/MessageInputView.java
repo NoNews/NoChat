@@ -1,5 +1,7 @@
 package ru.alexbykov.nochat.custom_views;
 
+import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
 import android.content.Context;
 import android.os.Build;
 import android.support.annotation.NonNull;
@@ -10,14 +12,13 @@ import android.text.TextWatcher;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.animation.AnimationUtils;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
-import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import ru.alexbykov.nochat.R;
@@ -34,7 +35,7 @@ public class MessageInputView extends FrameLayout {
 
 
     private static int LAYOUT = R.layout.no_chat_message_input;
-
+    private static int ANIMATION_DURATION = 200;
 
     private OnSendClickListener sendClickListener;
     private Runnable onAttachmentsClick;
@@ -65,7 +66,7 @@ public class MessageInputView extends FrameLayout {
         setupUI();
     }
 
-    private void setupAutoCompleteFields(List<String> autoCompleteFields) {
+    public void setupAutoCompleteFields(List<String> autoCompleteFields) {
         etInput.setAdapter(new ArrayAdapter(getContext(), android.R.layout.simple_dropdown_item_1line, autoCompleteFields));
     }
 
@@ -123,15 +124,15 @@ public class MessageInputView extends FrameLayout {
     private void hideInput() {
 
         if (ivSend.getVisibility() == VISIBLE) {
-            ivAttachments.setVisibility(VISIBLE);
-            ivSend.setVisibility(GONE);
+            animateHide(ivSend);
+            animateShow(ivAttachments);
         }
     }
 
     private void showInput() {
         if (ivSend.getVisibility() != VISIBLE) {
-            ivAttachments.setVisibility(GONE);
-            ivSend.setVisibility(VISIBLE);
+            animateHide(ivAttachments);
+            animateShow(ivSend);
         }
     }
 
@@ -152,7 +153,52 @@ public class MessageInputView extends FrameLayout {
     }
 
 
-    public void unsubscribe() {
+    public void animateHide(final View view) {
+        view.animate()
+                .scaleX(0f)
+                .scaleY(0f)
+                .alpha(0f)
+                .setDuration(ANIMATION_DURATION)
+                .setListener(new AnimatorListenerAdapter() {
+
+                    @Override
+                    public void onAnimationStart(Animator animation) {
+                    }
+
+                    @Override
+                    public void onAnimationCancel(Animator animation) {
+                        view.clearAnimation();
+                    }
+
+                    @Override
+                    public void onAnimationEnd(Animator animation) {
+                        view.setVisibility(GONE);
+                        view.clearAnimation();
+                    }
+                });
+    }
+
+    private void animateShow(final View view) {
+        view.animate()
+                .scaleX(1f)
+                .scaleY(1f)
+                .alpha(1f)
+                .setDuration(ANIMATION_DURATION)
+                .setListener(new AnimatorListenerAdapter() {
+                    @Override
+                    public void onAnimationStart(Animator animation) {
+                    }
+
+                    @Override
+                    public void onAnimationEnd(Animator animation) {
+                        view.setVisibility(VISIBLE);
+                        view.clearAnimation();
+                    }
+                });
+    }
+
+
+    public void unbind() {
         sendClickListener = null;
         onAttachmentsClick = null;
         ivAttachments.setOnClickListener(null);
