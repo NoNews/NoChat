@@ -10,7 +10,7 @@
         <item name="android:lines">6</item>
         <item name="android:maxLines">10</item>
         <item name="android:minLines">1</item>
-        <item name="android:inputType">textMultiLine</item>
+        <item name="android:inputType">textMultiLine|textCapSentences</item>
         <item name="android:hint">@string/no_chat_insert_message_hint</item>
         <item name="android:scrollbars">vertical</item>
         <item name="android:layout_centerInParent">true</item>
