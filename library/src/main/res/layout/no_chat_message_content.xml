@@ -68,6 +68,7 @@
             android:orientation="vertical">
 
             <LinearLayout
+                android:layout_marginTop="@dimen/no_chat_small_margin"
                 android:id="@+id/lt_reply_message"
                 style="@style/NoChatWithoutBackground"
                 android:layout_width="wrap_content"
