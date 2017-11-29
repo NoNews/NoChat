@@ -19,7 +19,7 @@ import ru.alexbykov.nochat.R;
  *         You can contact me at me@alexbykov.ru
  */
 
-public  class NoChatBaseViewHolder extends RecyclerView.ViewHolder {
+public class NoChatBaseViewHolder extends RecyclerView.ViewHolder {
 
 
     public TextView tvFileName;
@@ -37,6 +37,8 @@ public  class NoChatBaseViewHolder extends RecyclerView.ViewHolder {
     public ProgressBar progressBarImage;
     public LinearLayout ltMailedMessages;
     public RecyclerView rvMailedMessages;
+    public LinearLayout ltReplyMessage;
+    public TextView tvReplyMessage;
 
     public NoChatBaseViewHolder(View itemView) {
         super(itemView);
@@ -46,6 +48,8 @@ public  class NoChatBaseViewHolder extends RecyclerView.ViewHolder {
     protected final void bindBubbleViews() {
         ltMailedMessages = bindView(R.id.lt_mailed_messages);
         rvMailedMessages = bindView(R.id.rv_mailed_messages);
+        ltReplyMessage = bindView(R.id.lt_reply_message);
+        tvReplyMessage = bindView(R.id.tv_reply_message);
         bindFile();
         bindMessage();
         tvDate = bindView(R.id.tv_date);

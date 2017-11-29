@@ -81,7 +81,21 @@ public class ChatAdapter extends BaseNoChatAdapter<Object> {
 
     private void setupOutbox(MessageDTO message, NoChatBaseViewHolder holder) {
         NoChatOutboxHolder outboxHolder = (NoChatOutboxHolder) holder;
-        outboxHolder.tvMessage.setText(message.getText());
+
+        outboxHolder.ltReplyMessage.setVisibility(View.VISIBLE);
+
+        final String text = message.getText();
+        if (text.length() > 2 && text.charAt(0) == '>' && text.charAt(1) == ' ') {
+            final String[] textArray = text.split("\n");
+            final String replyMessage = textArray[0];
+            outboxHolder.tvReplyMessage.setText(replyMessage.substring(1));
+            final String userText = text.substring(replyMessage.length() + 1);
+            outboxHolder.tvMessage.setText(userText);
+        } else {
+            outboxHolder.ltReplyMessage.setVisibility(View.GONE);
+            outboxHolder.tvMessage.setText(message.getText());
+        }
+
 //        outboxHolder.tvDate.setText(message.getDate());
     }
 

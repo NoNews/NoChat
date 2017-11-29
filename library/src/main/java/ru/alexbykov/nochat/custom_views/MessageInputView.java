@@ -187,6 +187,7 @@ public class MessageInputView extends FrameLayout {
                 .setListener(new AnimatorListenerAdapter() {
                     @Override
                     public void onAnimationStart(Animator animation) {
+
                     }
 
                     @Override

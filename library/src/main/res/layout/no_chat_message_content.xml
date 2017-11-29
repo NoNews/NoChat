@@ -60,12 +60,42 @@
         </LinearLayout>
 
 
-        <TextView
-            android:id="@+id/tv_message"
-            style="@style/NoChatOutboxMessageText"
+        <LinearLayout
+            style="@style/NoChatWithoutBackground"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/lt_mailed_messages" />
+            android:layout_below="@id/lt_mailed_messages"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/lt_reply_message"
+                style="@style/NoChatWithoutBackground"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone">
+
+                <View
+                    android:layout_width="@dimen/no_chat_small_margin"
+                    android:layout_height="match_parent"
+                    android:background="@color/no_chat_blue" />
+
+                <TextView
+                    android:id="@+id/tv_reply_message"
+                    style="@style/NoChatOutboxMessageText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/no_chat_small_margin" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tv_message"
+                style="@style/NoChatOutboxMessageText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+
     </RelativeLayout>
 
 

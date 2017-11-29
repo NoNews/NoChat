@@ -48,8 +48,7 @@
                         android:id="@+id/tv_date"
                         style="@style/NoChatDateStyle"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="10:44" />
+                        android:layout_height="wrap_content" />
 
                     <ImageView
                         android:id="@+id/iv_timer"
