@@ -42,7 +42,7 @@ public class MessageInputView extends FrameLayout {
     private RelativeLayout rootView;
     private ImageView ivSend;
     private ImageView ivAttachments;
-    private AutoCompleteTextView etInput;
+    public AutoCompleteTextView etInput;
 
 
     public MessageInputView(@NonNull Context context) {
