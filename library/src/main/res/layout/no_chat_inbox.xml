@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/lt_message_root"
     style="@style/NoChatWithoutBackground"
     android:layout_width="match_parent"
@@ -8,8 +8,8 @@
     android:paddingBottom="@dimen/no_chat_very_small_margin"
     android:paddingTop="@dimen/no_chat_very_small_margin">
 
-
     <de.hdodenhof.circleimageview.CircleImageView
+        android:layout_gravity="bottom"
         android:id="@+id/civ_profile_image"
         android:layout_width="@dimen/no_chat_small_photo"
         android:layout_height="@dimen/no_chat_small_photo"
@@ -20,7 +20,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="@dimen/no_chat_very_big_margin"
-        android:layout_marginStart="@dimen/no_chat_middle_margin"
+        android:layout_marginStart="@dimen/no_chat_very_small_margin"
         android:layout_toEndOf="@id/civ_profile_image"
         android:background="@drawable/bubble_in"
         android:orientation="horizontal">
@@ -43,7 +43,6 @@
                     style="@style/NoChatNameStyle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/no_chat_very_small_margin"
                     android:text="Павел Смирнов" />
 
                 <include
@@ -55,11 +54,12 @@
                     style="@style/NoChatDateStyle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="end|bottom" />
+                    android:layout_gravity="end|bottom"
+                    android:text="10:44" />
             </LinearLayout>
 
         </FrameLayout>
 
     </LinearLayout>
 
-</RelativeLayout>
+</LinearLayout>

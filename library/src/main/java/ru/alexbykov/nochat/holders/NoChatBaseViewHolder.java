@@ -31,7 +31,7 @@ public class NoChatBaseViewHolder extends RecyclerView.ViewHolder {
     public TextView tvDate;
 
     public ImageView ivImage;
-    public RelativeLayout ltMessageRoot;
+    public LinearLayout ltMessageRoot;
     public LinearLayout ltMessage;
     public FrameLayout ltImageContent;
     public ProgressBar progressBarImage;
