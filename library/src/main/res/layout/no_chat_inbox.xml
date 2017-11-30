@@ -22,7 +22,7 @@
         android:layout_marginEnd="@dimen/no_chat_very_big_margin"
         android:layout_marginStart="@dimen/no_chat_middle_margin"
         android:layout_toEndOf="@id/civ_profile_image"
-        android:background="@drawable/chat_inbox_normal"
+        android:background="@drawable/bubble_in"
         android:orientation="horizontal">
 
 
@@ -30,7 +30,7 @@
             style="@style/NoChatWithoutBackground"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/no_chat_horizontal_margin">
+            android:layout_marginStart="@dimen/no_chat_small_margin">
 
             <LinearLayout
                 style="@style/NoChatWithoutBackground"
@@ -43,7 +43,8 @@
                     style="@style/NoChatNameStyle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/no_chat_very_small_margin" />
+                    android:layout_marginTop="@dimen/no_chat_very_small_margin"
+                    android:text="Павел Смирнов" />
 
                 <include
                     android:id="@+id/lt_content_group"

@@ -36,7 +36,7 @@
     </style>
 
     <style name="NoChatDateStyle">
-        <item name="android:layout_marginEnd">@dimen/no_chat_middle_margin</item>
+        <!--<item name="android:layout_marginEnd">@dimen/no_chat_middle_margin</item>-->
         <item name="android:textColor">@color/new_gray3</item>
         <item name="android:textSize">@dimen/no_chat_small_text_size</item>
         <item name="android:layout_marginBottom">@dimen/no_chat_small_margin</item>
@@ -92,6 +92,13 @@
         <item name="android:background">@drawable/no_chat_date_background</item>
         <item name="android:textStyle">bold</item>
         <item name="android:textSize">12sp</item>
+    </style>
+
+    <style name="NoChatStatusStyle">
+        <item name="android:layout_marginStart">@dimen/no_chat_small_margin</item>
+        <item name="android:layout_marginEnd">@dimen/no_chat_small_margin</item>
+        <item name="android:visibility">gone</item>
+
     </style>
 
     <string name="no_chat_insert_message_hint">Сообщение</string>

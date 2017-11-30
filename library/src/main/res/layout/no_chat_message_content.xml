@@ -44,7 +44,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/no_chat_small_margin"
-            android:layout_marginTop="@dimen/no_chat_small_margin">
+            android:layout_marginTop="@dimen/no_chat_small_margin"
+            android:visibility="gone">
 
             <View
                 android:id="@+id/viewSeparate"
@@ -68,11 +69,11 @@
             android:orientation="vertical">
 
             <LinearLayout
-                android:layout_marginTop="@dimen/no_chat_small_margin"
                 android:id="@+id/lt_reply_message"
                 style="@style/NoChatWithoutBackground"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/no_chat_small_margin"
                 android:visibility="gone">
 
                 <View
@@ -90,6 +91,7 @@
             </LinearLayout>
 
             <TextView
+                android:text="dklffkdlfkdlkflddsdsdsdsdsdsdssdsdsdskfl"
                 android:id="@+id/tv_message"
                 style="@style/NoChatOutboxMessageText"
                 android:layout_width="wrap_content"
