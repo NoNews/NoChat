@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:customNS="http://schemas.android.com/apk/res-auto"
     android:id="@+id/lt_message_root"
     style="@style/NoChatWithoutBackground"
     android:layout_width="match_parent"
@@ -15,7 +16,7 @@
         android:layout_gravity="bottom"
         android:layout_marginStart="@dimen/no_chat_middle_margin" />
 
-    <LinearLayout
+    <ru.alexbykov.nochat.custom_views.NoChatBubbleView
         android:id="@+id/lt_message"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -23,7 +24,8 @@
         android:layout_marginStart="@dimen/no_chat_very_small_margin"
         android:layout_toEndOf="@id/civ_profile_image"
         android:background="@drawable/bubble_inbox_with_angle"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        customNS:is_inbox="true">
 
 
         <FrameLayout
@@ -60,6 +62,6 @@
 
         </FrameLayout>
 
-    </LinearLayout>
+    </ru.alexbykov.nochat.custom_views.NoChatBubbleView>
 
 </LinearLayout>

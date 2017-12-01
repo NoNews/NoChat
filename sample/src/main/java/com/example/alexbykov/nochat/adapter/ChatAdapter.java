@@ -1,23 +1,21 @@
 package com.example.alexbykov.nochat.adapter;
 
 import android.content.Context;
+import android.os.Handler;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
-import com.example.alexbykov.nochat.R;
 import com.example.alexbykov.nochat.data.MessageDTO;
-import com.squareup.picasso.Callback;
-import com.squareup.picasso.Picasso;
-
-import ru.alexbykov.nochat.holders.NoChatInboxHolder;
-import ru.alexbykov.nochat.models.NoChatProgress;
-import ru.alexbykov.nochat.holders.NoChatBaseViewHolder;
-import ru.alexbykov.nochat.holders.NoChatOutboxHolder;
 
 import java.util.ArrayList;
 
 import ru.alexbykov.nochat.BaseNoChatAdapter;
+import ru.alexbykov.nochat.custom_views.NoChatBubbleView;
+import ru.alexbykov.nochat.holders.NoChatBaseViewHolder;
+import ru.alexbykov.nochat.holders.NoChatInboxHolder;
+import ru.alexbykov.nochat.holders.NoChatOutboxHolder;
+import ru.alexbykov.nochat.models.NoChatProgress;
 
 /**
  * @author Alex Bykov
@@ -73,23 +71,40 @@ public class ChatAdapter extends BaseNoChatAdapter<Object> {
                 break;
             case VIEW_TYPE_OUTBOX:
                 MessageDTO outbox = (MessageDTO) messages.get(position);
-                setupOutbox(outbox, holder);
+                setupOutbox(position, outbox, holder);
                 break;
         }
         super.onBindViewHolder(holder, position);
     }
 
-    private void setupOutbox(MessageDTO message, NoChatBaseViewHolder holder) {
+    private void setupOutbox(int position, MessageDTO message, NoChatBaseViewHolder holder) {
 
         NoChatOutboxHolder outboxHolder = (NoChatOutboxHolder) holder;
 
         outboxHolder.ltReplyMessage.setVisibility(View.VISIBLE);
-        outboxHolder.ltMessage.setOnClickListener(new View.OnClickListener() {
+        outboxHolder.bubbleMessage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
             }
         });
+
+        if (position == getItemCount() - 1) {
+            outboxHolder.bubbleMessage.setMode(NoChatBubbleView.Mode.WITH_ANGLE);
+        } else {
+            outboxHolder.bubbleMessage.setMode(NoChatBubbleView.Mode.WITHOUT_ANGLE);
+        }
+
+//
+//        if (messages.size() > 1) {
+//            final int oldPosition = --position;
+//            Object previosMessage = messages.get(oldPosition);
+//            if (previosMessage instanceof MessageDTO) {
+//                new Handler().post(() -> notifyItemChanged(oldPosition));
+//            }
+//
+//        }
+
 
         final String text = message.getText();
         if (text.length() > 2 && text.charAt(0) == '>' && text.charAt(1) == ' ') {
@@ -111,7 +126,9 @@ public class ChatAdapter extends BaseNoChatAdapter<Object> {
         inboxHolder.tvMessage.setText(message.getText());
         inboxHolder.tvName.setText(message.getFrom());
 
-        inboxHolder.ltMessage.setOnClickListener(new View.OnClickListener() {
+        inboxHolder.bubbleMessage.setMode(NoChatBubbleView.Mode.WITH_ANGLE);
+
+        inboxHolder.bubbleMessage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 

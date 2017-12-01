@@ -7,10 +7,10 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import ru.alexbykov.nochat.R;
+import ru.alexbykov.nochat.custom_views.NoChatBubbleView;
 
 /**
  * @author Alex Bykov
@@ -32,7 +32,7 @@ public class NoChatBaseViewHolder extends RecyclerView.ViewHolder {
 
     public ImageView ivImage;
     public LinearLayout ltMessageRoot;
-    public LinearLayout ltMessage;
+    public NoChatBubbleView bubbleMessage;
     public FrameLayout ltImageContent;
     public ProgressBar progressBarImage;
     public LinearLayout ltMailedMessages;
@@ -69,7 +69,7 @@ public class NoChatBaseViewHolder extends RecyclerView.ViewHolder {
     private void bindImage() {
         ivImage = bindView(R.id.iv_image);
         ltMessageRoot = bindView(R.id.lt_message_root);
-        ltMessage = bindView(R.id.lt_message);
+        bubbleMessage = bindView(R.id.lt_message);
         ltImageContent = bindView(R.id.lt_image_content);
         progressBarImage = bindView(R.id.progress_bar_image);
     }
