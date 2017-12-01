@@ -80,9 +80,16 @@ public class ChatAdapter extends BaseNoChatAdapter<Object> {
     }
 
     private void setupOutbox(MessageDTO message, NoChatBaseViewHolder holder) {
+
         NoChatOutboxHolder outboxHolder = (NoChatOutboxHolder) holder;
 
         outboxHolder.ltReplyMessage.setVisibility(View.VISIBLE);
+        outboxHolder.ltMessage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
 
         final String text = message.getText();
         if (text.length() > 2 && text.charAt(0) == '>' && text.charAt(1) == ' ') {
@@ -103,6 +110,13 @@ public class ChatAdapter extends BaseNoChatAdapter<Object> {
         NoChatInboxHolder inboxHolder = (NoChatInboxHolder) holder;
         inboxHolder.tvMessage.setText(message.getText());
         inboxHolder.tvName.setText(message.getFrom());
+
+        inboxHolder.ltMessage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
 
         inboxHolder.ltImageContent.setOnClickListener(new View.OnClickListener() {
             @Override

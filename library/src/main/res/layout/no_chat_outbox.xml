@@ -21,7 +21,7 @@
             android:layout_gravity="end"
             android:layout_marginEnd="@dimen/no_chat_small_margin"
             android:layout_marginStart="@dimen/no_chat_very_big_margin"
-            android:background="@drawable/bubble_out"
+            android:background="@drawable/bubble_outbox_with_angle"
             android:orientation="horizontal">
 
             <FrameLayout
