@@ -160,11 +160,6 @@ public class MessageInputView extends FrameLayout {
                 .alpha(0f)
                 .setDuration(ANIMATION_DURATION)
                 .setListener(new AnimatorListenerAdapter() {
-
-                    @Override
-                    public void onAnimationStart(Animator animation) {
-                    }
-
                     @Override
                     public void onAnimationCancel(Animator animation) {
                         view.clearAnimation();
@@ -185,11 +180,6 @@ public class MessageInputView extends FrameLayout {
                 .alpha(1f)
                 .setDuration(ANIMATION_DURATION)
                 .setListener(new AnimatorListenerAdapter() {
-                    @Override
-                    public void onAnimationStart(Animator animation) {
-
-                    }
-
                     @Override
                     public void onAnimationEnd(Animator animation) {
                         view.setVisibility(VISIBLE);

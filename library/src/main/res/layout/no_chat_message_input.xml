@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     style="@style/NoChatWithoutBackground"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -15,7 +16,7 @@
         android:layout_marginEnd="@dimen/no_chat_small_margin"
         android:gravity="center">
 
-        <ImageView
+        <android.support.v7.widget.AppCompatImageView
             android:id="@+id/iv_attachments"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -25,14 +26,14 @@
             android:padding="@dimen/no_chat_small_margin"
             android:src="@drawable/no_chat_attach" />
 
-        <ImageView
+        <android.support.v7.widget.AppCompatImageView
             android:id="@+id/iv_send"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:animateLayoutChanges="true"
             android:background="?attr/selectableItemBackground"
             android:padding="@dimen/no_chat_small_margin"
-            android:src="@drawable/send" />
+            app:srcCompat="@drawable/ic_send_icon" />
 
 
     </LinearLayout>
