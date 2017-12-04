@@ -35,7 +35,7 @@ public class MessageInputView extends FrameLayout {
 
 
     private static int LAYOUT = R.layout.no_chat_message_input;
-    private static int ANIMATION_DURATION = 200;
+    private static int ANIMATION_DURATION = 250;
 
     private OnSendClickListener sendClickListener;
     private Runnable onAttachmentsClick;
@@ -43,6 +43,7 @@ public class MessageInputView extends FrameLayout {
     private ImageView ivSend;
     private ImageView ivAttachments;
     public AutoCompleteTextView etInput;
+    private boolean isAutoHideInputButtonEnabled = true;
 
 
     public MessageInputView(@NonNull Context context) {
@@ -82,9 +83,10 @@ public class MessageInputView extends FrameLayout {
             @Override
             public void onClick(View view) {
                 final String text = etInput.getText().toString().trim();
-                if (!NoChatStringUtils.isEmpty(text)) {
-                    sendClickListener.onClickSend(text);
-                }
+//                if (!NoChatStringUtils.isEmpty(text)) {
+//                    sendClickListener.onClickSend(text);
+//                }
+                sendClickListener.onClickSend(text);
                 clearInput();
             }
         });
@@ -103,10 +105,8 @@ public class MessageInputView extends FrameLayout {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                if (NoChatStringUtils.isEmpty(s.toString())) {
-                    hideInput();
-                } else {
-                    showInput();
+                if (isAutoHideInputButtonEnabled) {
+                    checkTextChanged(s);
                 }
             }
 
@@ -117,23 +117,62 @@ public class MessageInputView extends FrameLayout {
         });
     }
 
+    private void checkTextChanged(CharSequence s) {
+
+        if (NoChatStringUtils.isEmpty(s.toString())) {
+            hideInput(true);
+        } else {
+            showInput(true);
+        }
+    }
+
     private void clearInput() {
         etInput.getText().clear();
     }
 
-    private void hideInput() {
+    public void hideInput(boolean animate) {
 
         if (ivSend.getVisibility() == VISIBLE) {
-            animateHide(ivSend);
-            animateShow(ivAttachments);
+            if (animate) {
+                animateHide(ivSend);
+                animateShow(ivAttachments);
+            } else {
+                hideView(ivSend);
+                showView(ivAttachments);
+            }
         }
     }
 
-    private void showInput() {
-        if (ivSend.getVisibility() != VISIBLE) {
-            animateHide(ivAttachments);
-            animateShow(ivSend);
+    public void setAutoHideInputButtonEnabled(boolean isAutoHideInputButtonEnabled) {
+        if (this.isAutoHideInputButtonEnabled != isAutoHideInputButtonEnabled) {
+
+            this.isAutoHideInputButtonEnabled = isAutoHideInputButtonEnabled;
+            if (!this.isAutoHideInputButtonEnabled) {
+                showInput(false);
+            } else {
+                checkTextChanged(etInput.getText());
+            }
         }
+    }
+
+    public void showInput(boolean animate) {
+        if (ivSend.getVisibility() != VISIBLE) {
+            if (animate) {
+                animateHide(ivAttachments);
+                animateShow(ivSend);
+            } else {
+                hideView(ivAttachments);
+                showView(ivSend);
+            }
+        }
+    }
+
+    private void showView(View view) {
+        view.setVisibility(VISIBLE);
+    }
+
+    private void hideView(View view) {
+        view.setVisibility(GONE);
     }
 
     private void bindViews() {
@@ -153,7 +192,7 @@ public class MessageInputView extends FrameLayout {
     }
 
 
-    public void animateHide(final View view) {
+    private void animateHide(final View view) {
         view.animate()
                 .scaleX(0f)
                 .scaleY(0f)

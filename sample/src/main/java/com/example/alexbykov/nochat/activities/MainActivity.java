@@ -56,11 +56,14 @@ public class MainActivity extends AppCompatActivity implements MainActivityView 
         ltInput.onAttachmentsClick(() -> {
 
         });
+        ltInput.setAutoHideInputButtonEnabled(true);
 
         chatAdapter.onTop(() -> mainActivityPresenter.onTopLoadMore());
         chatAdapter.onBottom(() -> {
 
         });
+
+
     }
 
 

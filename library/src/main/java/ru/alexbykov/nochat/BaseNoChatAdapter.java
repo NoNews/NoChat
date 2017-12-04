@@ -1,11 +1,13 @@
 package ru.alexbykov.nochat;
 
 import android.support.annotation.LayoutRes;
+import android.support.annotation.Nullable;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import java.util.Collections;
 import java.util.List;
 
 import ru.alexbykov.nochat.holders.NoChatBaseViewHolder;
@@ -50,6 +52,13 @@ public abstract class BaseNoChatAdapter<M> extends RecyclerView.Adapter<NoChatBa
 
     private NoChatAdapterState adapterState = NoChatAdapterState.ON_BOTTOM;
 
+
+    @Override
+    public void onBindViewHolder(NoChatBaseViewHolder holder, int position) {
+
+    }
+
+    @Nullable
     @Override
     public NoChatBaseViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
 
@@ -73,12 +82,6 @@ public abstract class BaseNoChatAdapter<M> extends RecyclerView.Adapter<NoChatBa
         }
 
         return null;
-    }
-
-
-    @Override
-    public void onBindViewHolder(NoChatBaseViewHolder holder, int position) {
-
     }
 
 
@@ -152,10 +155,9 @@ public abstract class BaseNoChatAdapter<M> extends RecyclerView.Adapter<NoChatBa
     }
 
     public void moveToEnd(int position) {
-        final M message = messages.get(position);
-        remove(position);
-        add(message, getLastPosition());
+        messages.add(messages.remove(position));
         notifyItemRangeChanged(position, getLastPosition());
+        notifyItemMoved(position, getLastPosition());
     }
 
     public void removeMessage(M t) {
@@ -263,7 +265,7 @@ public abstract class BaseNoChatAdapter<M> extends RecyclerView.Adapter<NoChatBa
         messages.remove(position);
     }
 
-    public void unsubscribe() {
+    public void unbind() {
         messages = null;
         topListener = null;
         bottomListener = null;
