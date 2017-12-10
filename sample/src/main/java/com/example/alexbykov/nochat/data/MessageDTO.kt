@@ -1,5 +1,6 @@
 package com.example.alexbykov.nochat.data
 
+import ru.alexbykov.nochat.markers.NoChatMessage
 import java.util.*
 
 /**
@@ -8,7 +9,7 @@ import java.util.*
  *
  *  You can contact me at me@alexbykov.ru
  */
-class MessageDTO {
+class MessageDTO : NoChatMessage {
 
     var messageId: String? = null
     var chat: String? = null
@@ -28,5 +29,6 @@ class MessageDTO {
     var image: String? = null
     var authorPhoto: String? = null
     var linkedMessages: List<MessageDTO>? = null
+    var isBubbleWithAngle = true
 
 }

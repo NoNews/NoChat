@@ -183,13 +183,25 @@ public class ChatAdapter extends BaseNoChatAdapter<Object> {
 
         holder.viewBackground.setSelected(false);
 
-
+        if (message.isBubbleWithAngle()) {
+            holder.bubbleMessage.setMode(NoChatBubbleView.Mode.WITH_ANGLE);
+        } else {
+            holder.bubbleMessage.setMode(NoChatBubbleView.Mode.WITHOUT_ANGLE);
+        }
     }
 
     private void setupLinkedMessagesAdapter() {
 
     }
 
+
+    @Override
+    public void newMessage(Object message) {
+        super.newMessage(message);
+        MessageDTO lastMessage = (MessageDTO) getPreLastMessage();
+        lastMessage.setBubbleWithAngle(false);
+        changePreLastMessage();
+    }
 
     public void setMyJid(String myJid) {
         this.myJid = myJid;

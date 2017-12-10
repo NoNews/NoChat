@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import java.security.MessageDigest;
 import java.util.Collections;
 import java.util.List;
 
@@ -14,6 +15,7 @@ import ru.alexbykov.nochat.holders.NoChatBaseViewHolder;
 import ru.alexbykov.nochat.holders.NoChatDateHolder;
 import ru.alexbykov.nochat.holders.NoChatInboxHolder;
 import ru.alexbykov.nochat.holders.NoChatOutboxHolder;
+import ru.alexbykov.nochat.markers.NoChatMessage;
 import ru.alexbykov.nochat.models.NoChatProgress;
 import ru.alexbykov.nochat.utils.NoChatScrollUtils;
 
@@ -270,4 +272,26 @@ public abstract class BaseNoChatAdapter<M> extends RecyclerView.Adapter<NoChatBa
         bottomListener = null;
         recyclerView = null;
     }
+
+
+    public M getPreLastMessage() {
+
+        for (int i = getPreLastMessageIndex(); i > 0; i++) {
+            M message = messages.get(i);
+            if (message instanceof NoChatMessage) {
+                return message;
+            }
+        }
+        return null;
+    }
+
+    public void changePreLastMessage() {
+        notifyItemChanged(getPreLastMessageIndex());
+    }
+
+    private int getPreLastMessageIndex() {
+        return getItemCount() - 2;
+    }
+
+
 }
