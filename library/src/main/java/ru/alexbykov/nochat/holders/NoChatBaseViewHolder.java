@@ -12,6 +12,7 @@ import android.widget.TextView;
 import ru.alexbykov.nochat.R;
 import ru.alexbykov.nochat.custom_views.NoChatBubbleView;
 import ru.alexbykov.nochat.custom_views.NoChatRootMessage;
+import ru.alexbykov.nochat.custom_views.NoChatSelectView;
 
 /**
  * @author Alex Bykov
@@ -40,7 +41,7 @@ public class NoChatBaseViewHolder extends RecyclerView.ViewHolder {
     public RecyclerView rvMailedMessages;
     public LinearLayout ltReplyMessage;
     public TextView tvReplyMessage;
-    public View viewBackground;
+    public NoChatSelectView viewBackground;
 
     public NoChatBaseViewHolder(View itemView) {
         super(itemView);
