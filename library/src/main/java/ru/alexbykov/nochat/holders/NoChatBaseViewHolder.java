@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 import ru.alexbykov.nochat.R;
 import ru.alexbykov.nochat.custom_views.NoChatBubbleView;
+import ru.alexbykov.nochat.custom_views.NoChatRootMessage;
 
 /**
  * @author Alex Bykov
@@ -31,7 +32,7 @@ public class NoChatBaseViewHolder extends RecyclerView.ViewHolder {
     public TextView tvDate;
 
     public ImageView ivImage;
-    public LinearLayout ltMessageRoot;
+    public NoChatRootMessage rootMessage;
     public NoChatBubbleView bubbleMessage;
     public FrameLayout ltImageContent;
     public ProgressBar progressBarImage;
@@ -39,6 +40,7 @@ public class NoChatBaseViewHolder extends RecyclerView.ViewHolder {
     public RecyclerView rvMailedMessages;
     public LinearLayout ltReplyMessage;
     public TextView tvReplyMessage;
+    public View viewBackground;
 
     public NoChatBaseViewHolder(View itemView) {
         super(itemView);
@@ -50,6 +52,7 @@ public class NoChatBaseViewHolder extends RecyclerView.ViewHolder {
         rvMailedMessages = bindView(R.id.rv_mailed_messages);
         ltReplyMessage = bindView(R.id.lt_reply_message);
         tvReplyMessage = bindView(R.id.tv_reply_message);
+        viewBackground = bindView(R.id.view_background);
         bindFile();
         bindMessage();
         tvDate = bindView(R.id.tv_date);
@@ -68,7 +71,7 @@ public class NoChatBaseViewHolder extends RecyclerView.ViewHolder {
 
     private void bindImage() {
         ivImage = bindView(R.id.iv_image);
-        ltMessageRoot = bindView(R.id.lt_message_root);
+        rootMessage = bindView(R.id.root_message);
         bubbleMessage = bindView(R.id.lt_message);
         ltImageContent = bindView(R.id.lt_image_content);
         progressBarImage = bindView(R.id.progress_bar_image);

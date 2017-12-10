@@ -1,16 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/lt_message_root"
+<ru.alexbykov.nochat.custom_views.NoChatRootMessage xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/root_message"
     style="@style/NoChatWithoutBackground"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="horizontal"
-    android:paddingBottom="@dimen/no_chat_very_small_margin"
-    android:paddingTop="@dimen/no_chat_very_small_margin">
+    android:paddingBottom="@dimen/no_chat_very_small_margin">
+
 
     <RelativeLayout
         style="@style/NoChatWithoutBackground"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
         <ru.alexbykov.nochat.custom_views.NoChatBubbleView
@@ -81,5 +80,12 @@
             </FrameLayout>
 
         </ru.alexbykov.nochat.custom_views.NoChatBubbleView>
+
     </RelativeLayout>
-</LinearLayout>
+
+    <ru.alexbykov.nochat.custom_views.NoChatSelectView
+        android:id="@+id/view_background"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+</ru.alexbykov.nochat.custom_views.NoChatRootMessage>

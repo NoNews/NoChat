@@ -1,7 +1,6 @@
 package com.example.alexbykov.nochat.adapter;
 
 import android.content.Context;
-import android.os.Handler;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -118,6 +117,8 @@ public class ChatAdapter extends BaseNoChatAdapter<Object> {
             outboxHolder.tvMessage.setText(message.getText());
         }
 
+        holder.viewBackground.setSelected(false);
+
 //        outboxHolder.tvDate.setText(message.getDate());
     }
 
@@ -179,6 +180,9 @@ public class ChatAdapter extends BaseNoChatAdapter<Object> {
         } else {
             holder.ltMailedMessages.setVisibility(View.GONE);
         }
+
+        holder.viewBackground.setSelected(false);
+
 
     }
 

@@ -1,67 +1,80 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:customNS="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/lt_message_root"
+<ru.alexbykov.nochat.custom_views.NoChatRootMessage xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/root_message"
     style="@style/NoChatWithoutBackground"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="horizontal"
     android:paddingBottom="@dimen/no_chat_very_small_margin"
-    android:paddingTop="@dimen/no_chat_very_small_margin">
+    android:layout_height="wrap_content">
 
-    <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/civ_profile_image"
-        android:layout_width="@dimen/no_chat_small_photo"
-        android:layout_height="@dimen/no_chat_small_photo"
-        android:layout_gravity="bottom"
-        android:layout_marginStart="@dimen/no_chat_middle_margin" />
-
-    <ru.alexbykov.nochat.custom_views.NoChatBubbleView
-        android:id="@+id/lt_message"
-        android:layout_width="wrap_content"
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:customNS="http://schemas.android.com/apk/res-auto"
+        style="@style/NoChatWithoutBackground"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="@dimen/no_chat_very_big_margin"
-        android:layout_marginStart="@dimen/no_chat_very_small_margin"
-        android:layout_toEndOf="@id/civ_profile_image"
-        android:background="@drawable/bubble_inbox_with_angle"
-        android:orientation="horizontal"
-        customNS:is_inbox="true">
+        android:orientation="horizontal">
 
 
-        <FrameLayout
-            style="@style/NoChatWithoutBackground"
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/civ_profile_image"
+            android:layout_width="@dimen/no_chat_small_photo"
+            android:layout_height="@dimen/no_chat_small_photo"
+            android:layout_gravity="bottom"
+            android:layout_marginStart="@dimen/no_chat_middle_margin" />
+
+        <ru.alexbykov.nochat.custom_views.NoChatBubbleView
+            android:id="@+id/lt_message"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/no_chat_small_margin">
+            android:layout_marginEnd="@dimen/no_chat_very_big_margin"
+            android:layout_marginStart="@dimen/no_chat_very_small_margin"
+            android:layout_toEndOf="@id/civ_profile_image"
+            android:background="@drawable/bubble_inbox_with_angle"
+            android:orientation="horizontal"
+            customNS:is_inbox="true">
 
-            <LinearLayout
+
+            <FrameLayout
                 style="@style/NoChatWithoutBackground"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:layout_marginStart="@dimen/no_chat_small_margin">
 
-                <TextView
-                    android:id="@+id/tv_name"
-                    style="@style/NoChatNameStyle"
+                <LinearLayout
+                    style="@style/NoChatWithoutBackground"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Павел Смирнов" />
+                    android:orientation="vertical">
 
-                <include
-                    android:id="@+id/lt_content_group"
-                    layout="@layout/no_chat_message_content" />
+                    <TextView
+                        android:id="@+id/tv_name"
+                        style="@style/NoChatNameStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Павел Смирнов" />
 
-                <TextView
-                    android:id="@+id/tv_date"
-                    style="@style/NoChatDateStyle"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="end|bottom"
-                    android:text="10:44" />
-            </LinearLayout>
+                    <include
+                        android:id="@+id/lt_content_group"
+                        layout="@layout/no_chat_message_content" />
 
-        </FrameLayout>
+                    <TextView
+                        android:id="@+id/tv_date"
+                        style="@style/NoChatDateStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="end|bottom"
+                        android:text="10:44" />
+                </LinearLayout>
 
-    </ru.alexbykov.nochat.custom_views.NoChatBubbleView>
+            </FrameLayout>
 
-</LinearLayout>
+        </ru.alexbykov.nochat.custom_views.NoChatBubbleView>
+
+    </LinearLayout>
+
+    <ru.alexbykov.nochat.custom_views.NoChatSelectView
+        android:id="@+id/view_background"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+</ru.alexbykov.nochat.custom_views.NoChatRootMessage>
+
