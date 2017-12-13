@@ -31,6 +31,8 @@ public class ChatAdapter extends BaseNoChatAdapter<Object> {
 
     private RecyclerView.RecycledViewPool recycledViewPool;
 
+    private boolean isSelectMode = false;
+
 
     public ChatAdapter() {
         messages = new ArrayList<>();
@@ -94,17 +96,6 @@ public class ChatAdapter extends BaseNoChatAdapter<Object> {
             outboxHolder.bubbleMessage.setMode(NoChatBubbleView.Mode.WITHOUT_ANGLE);
         }
 
-//
-//        if (messages.size() > 1) {
-//            final int oldPosition = --position;
-//            Object previosMessage = messages.get(oldPosition);
-//            if (previosMessage instanceof MessageDTO) {
-//                new Handler().post(() -> notifyItemChanged(oldPosition));
-//            }
-//
-//        }
-
-
         final String text = message.getText();
         if (text.length() > 2 && text.charAt(0) == '>' && text.charAt(1) == ' ') {
             final String[] textArray = text.split("\n");
@@ -129,18 +120,13 @@ public class ChatAdapter extends BaseNoChatAdapter<Object> {
 
         inboxHolder.bubbleMessage.setMode(NoChatBubbleView.Mode.WITH_ANGLE);
 
-        inboxHolder.bubbleMessage.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+        inboxHolder.bubbleMessage.setOnClickListener(v -> {
 
-            }
         });
 
-        inboxHolder.ltImageContent.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
 
-            }
+        inboxHolder.ltImageContent.setOnClickListener(v -> {
+
         });
 //        if (message.getImage() != null) {
 //            inboxHolder.ltImageContent.setVisibility(View.VISIBLE);
@@ -188,6 +174,32 @@ public class ChatAdapter extends BaseNoChatAdapter<Object> {
         } else {
             holder.bubbleMessage.setMode(NoChatBubbleView.Mode.WITHOUT_ANGLE);
         }
+
+
+        inboxHolder.rootMessage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (isSelectMode) {
+                    message.setSelected(!message.getSelected());
+                    inboxHolder.viewBackground.setSelected(message.getSelected());
+                }
+            }
+        });
+
+        inboxHolder.rootMessage.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                if (!isSelectMode) {
+                    isSelectMode = true;
+                    message.setSelected(true);
+                    inboxHolder.viewBackground.setSelected(true);
+                    return true;
+                }
+                return false;
+            }
+        });
+
+        holder.viewBackground.setSelected(message.getSelected());
     }
 
     private void setupLinkedMessagesAdapter() {

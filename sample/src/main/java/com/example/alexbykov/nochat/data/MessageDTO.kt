@@ -30,5 +30,6 @@ class MessageDTO : NoChatMessage {
     var authorPhoto: String? = null
     var linkedMessages: List<MessageDTO>? = null
     var isBubbleWithAngle = true
+    var selected = false
 
 }

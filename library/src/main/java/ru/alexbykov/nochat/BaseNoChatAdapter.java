@@ -270,7 +270,6 @@ public abstract class BaseNoChatAdapter<M> extends RecyclerView.Adapter<NoChatBa
     public void unbind() {
         topListener = null;
         bottomListener = null;
-        recyclerView = null;
     }
 
 

@@ -49,14 +49,12 @@ public class NoChatSelectView extends View {
     public void setSelected(boolean selected) {
         if (selected) {
             setVisibility(VISIBLE);
-//            setBackgroundColor(getSelectedColor());
         } else {
             setVisibility(GONE);
-//            setBackground(null);
         }
     }
 
     private int getSelectedColor() {
-        return ContextCompat.getColor(getContext(), R.color.no_chat_transparent_black);
+        return ContextCompat.getColor(getContext(), R.color.no_chat_blue_transparent);
     }
 }

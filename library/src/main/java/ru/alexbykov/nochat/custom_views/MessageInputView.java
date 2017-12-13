@@ -74,8 +74,11 @@ public class MessageInputView extends FrameLayout {
 
     private void setupUI() {
         bindViews();
-        setupListeners();
         ivSend.setVisibility(GONE);
+    }
+
+    public void setupUX() {
+        setupListeners();
     }
 
     private void setupListeners() {
@@ -233,7 +236,7 @@ public class MessageInputView extends FrameLayout {
         onAttachmentsClick = null;
         ivAttachments.setOnClickListener(null);
         ivSend.setOnClickListener(null);
-        etInput.addTextChangedListener(null);
+//        etInput.addTextChangedListener(null);
     }
 
 

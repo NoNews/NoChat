@@ -54,10 +54,10 @@ public class NoChatBaseViewHolder extends RecyclerView.ViewHolder {
         ltReplyMessage = bindView(R.id.lt_reply_message);
         tvReplyMessage = bindView(R.id.tv_reply_message);
         viewBackground = bindView(R.id.view_background);
+        bindImage();
         bindFile();
         bindMessage();
         tvDate = bindView(R.id.tv_date);
-        bindImage();
     }
 
     protected final void bindMailedMessageHolder() {
