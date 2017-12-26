@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout android:id="@+id/lt_image_content"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/lt_image_content"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:layout_marginTop="@dimen/no_chat_small_margin"
+    android:layout_marginTop="@dimen/no_chat_very_small_margin"
     android:foreground="?attr/selectableItemBackground"
-    android:visibility="gone"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+    android:visibility="visible">
 
     <ImageView
         android:id="@+id/iv_image"
@@ -21,4 +21,45 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center" />
+
+
+    <LinearLayout
+        android:gravity="end|bottom"
+        android:background="@color/no_chat_transparent_black"
+        android:layout_gravity="end|bottom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:textColor="@color/white"
+            android:id="@+id/tv_photo_date"
+            style="@style/NoChatDateStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="10:34" />
+
+        <!--<ImageView-->
+            <!--android:id="@+id/iv_timer"-->
+            <!--style="@style/NoChatStatusStyle"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:src="@drawable/no_chat_timer"-->
+            <!--android:visibility="gone" />-->
+
+        <ImageView
+            android:id="@+id/iv_photo_delivered"
+            style="@style/NoChatStatusStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/no_chat_delivered"
+             />
+
+        <ImageView
+            android:id="@+id/iv_photo_read"
+            style="@style/NoChatStatusStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/no_chat_ic_was_read"
+            android:visibility="visible" />
+    </LinearLayout>
 </FrameLayout>

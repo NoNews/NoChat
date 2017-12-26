@@ -55,8 +55,28 @@ public class NoChatBubbleView extends LinearLayout {
         setBackgroundResource(getBackgroundByMode(mode));
     }
 
+    public void setMode(Mode mode, boolean isImportant) {
+        if (isImportant) {
+            setBackgroundResource(getImportanctBackgroundByMode(mode));
+        } else {
+            setBackgroundResource(getBackgroundByMode(mode));
+        }
+    }
+
     private int getBackgroundByMode(Mode mode) {
         return mode == Mode.WITH_ANGLE ? getBackgroundWithAngle() : getBackgroundWithoutAngle();
+    }
+
+    private int getImportanctBackgroundByMode(Mode mode) {
+        return mode == Mode.WITH_ANGLE ? getImportantBackgroundWithAngle() : getImportantBackgroundWithoutAngle();
+    }
+
+    private int getImportantBackgroundWithoutAngle() {
+        return 0;
+    }
+
+    private int getImportantBackgroundWithAngle() {
+        return isInbox ? R.drawable.bubble_inbox_important : R.drawable.bubble_outbox_important;
     }
 
     @DrawableRes
